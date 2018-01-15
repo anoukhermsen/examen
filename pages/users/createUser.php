@@ -19,11 +19,11 @@
      * In dit stuk code is met behulp van Preg match een beveiliging er op gezet dat alleen een bepaald soort email kan worden toe gevoegt,
      * en met behulp van md5 worden de wachtwoorden beveiligd maar ook met behulp van htmlspecialchars wordt het insurten van de informatie beveiligd zodat hackers niet in de database kunnen komen.
      */
-        if(isset($_POST['aanmaken']))
+        if(isset($_POST['submit']))
         {
-            if(!empty($_POST['gebruikersEmail']) && !empty($_POST['gebruikersWachtwoord']) && !empty($_POST['gebruikersVoornaam']) && !empty($_POST['gebruikersTussenvoegsel']) && !empty($_POST['gebruikersAchternaam']))
+            if(!empty($_POST['gebruikersEmail']) && !empty($_POST['gebruikersWachtwoord']) && !empty($_POST['gebruikersVoornaam']) && !empty($_POST['gebruikersAchternaam']))
             {
-                if (preg_match("/almere.nl/i", $_POST['gebruikersWachtwoord']))
+                if (preg_match("/almere.nl/i", $_POST['gebruikersEmail']))
                 {
                     $values = array(htmlspecialchars($_POST['gebruikersEmail']), htmlspecialchars(md5($_POST['gebruikersWachtwoord'])), htmlspecialchars($_POST['gebruikersVoornaam']), htmlspecialchars($_POST['gebruikersTussenvoegsel']), htmlspecialchars($_POST['gebruikersAchternaam']));
                     $query->insertIntoTable($table, $columns, $values);
@@ -43,12 +43,6 @@
             }
 
         }
-        if(isset($_POST['annuleren']))
-        {
-            echo 'Het toevoegen is geannuleerd';
-            header( "refresh:0.5;url=overviewUsers.php" );
-        }
-
 
         //Het formulier waarbij je de gebruikers kunnen worden toe gevoegd
         echo '
