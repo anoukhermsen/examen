@@ -2,8 +2,8 @@
 
     session_start();
 
-    include '../../class/Crud.php';
-    $query = new Crud();
+    include '../../class/Sql.php';
+    $query = new Sql();
     include '../../class/LoginHandler.php';
 
 
@@ -12,14 +12,16 @@
     /*
      * De variable's die er worden gebruikt om de gekozen gebruiker te kunnen verwijderen door middel van het gebruiken van een $_GET id
      */
-    $columnId = "gebruikersId";
+    $columns = "gebruikersArchief";
     $table = "gebruikers";
+    $where = 'gebruikersId';
+    $columnSort = "gebruikersEmail";
     $id = $_GET['id'];
 
     if (isset($_POST['Ja']))
     {
-        echo $query->deleteRow($table, $columnId, $id);
-
+        $values = 1;
+        $query->archiveRow($table, $columns, $values, $where, $id);
         header('location: overviewUsers.php');
     }
 
@@ -36,9 +38,11 @@
 
             <?php
                 echo'
-                      <input type="submit" value="Ja" name="Ja" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
-                      <input type="submit" value="Nee" name="Nee" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                    <form method="post">
+                      <input type="submit" value="Ja" name="Ja">
+                      <input type="submit" value="Nee" name="Nee">
                       <input type="hidden" name="id" value="'. $_GET['id'] .'">
+                    </form>
                     ';
             ?>
     </body>
