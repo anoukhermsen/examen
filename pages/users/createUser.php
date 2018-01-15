@@ -55,15 +55,20 @@
                 <form method="post">
                     Gebruikers Email:
                         <input type="text" name="gebruikersEmail">
-                    
+                            <br>
                     Gebruikers Wachtwoord:
                         <input type="password" name="gebruikersWachtwoord">
-                    
+                           <br>
                     Gebruikers Voornaam:
                         <input type="text" name="gebruikersVoornaam">
-                    <input type="text" name="gebruikersTussenvoegsel">
-                    <input type="text" name="gebruikersAchternaam">
-                    <input type="submit" name="submit">
+                            <br>
+                    Gebruikers Tussenvoegsel:
+                        <input type="text" name="gebruikersTussenvoegsel">
+                            <br>
+                    Gebruikers Achternaam:
+                        <input type="text" name="gebruikersAchternaam">
+                            <br>
+                        <input type="submit" name="submit">
                 </form>
         
         
