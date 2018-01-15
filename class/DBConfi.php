@@ -13,7 +13,7 @@ class DBConfi
 
     public function openConnection()
     {
-        $this->setConn(new PDO("mysql:host=127.0.0.1;dbname=lanparty", "root", ""));
+        $this->setConn(new PDO("mysql:host=127.0.0.1;dbname=examen", "root", ""));
     }
 
     public function closeConnection()
