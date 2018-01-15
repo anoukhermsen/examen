@@ -11,7 +11,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="createUser.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createUser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/users/createUser.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1015">
@@ -24,9 +24,12 @@
       <file leaf-file-name="deleteUser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/users/deleteUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="12" column="95" lean-forward="false" selection-start-line="12" selection-start-column="95" selection-end-line="12" selection-end-column="95" />
+              <folding>
+                <marker date="1516017272094" expanded="true" signature="854:1003" ph="..." />
+                <marker date="1516017272094" expanded="true" signature="1079:1228" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,21 +37,21 @@
       <file leaf-file-name="overviewUsers.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/users/overviewUsers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
-              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state relative-caret-position="884">
+              <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
               <folding>
-                <marker date="1516017146493" expanded="true" signature="5057:5063" ph="..." />
-                <marker date="1516017146493" expanded="true" signature="5057:5071" ph="..." />
+                <marker date="1516017272037" expanded="true" signature="1148:1776" ph="..." />
+                <marker date="1516017272037" expanded="true" signature="1181:1776" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updateUser.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="updateUser.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/users/updateUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -88,6 +91,9 @@
         <option value="$PROJECT_DIR$/pages/users/updateUser.php" />
         <option value="$PROJECT_DIR$/pages/users/createUser.php" />
         <option value="$PROJECT_DIR$/pages/users/createUser.php" />
+        <option value="$PROJECT_DIR$/pages/users/deleteUser.php" />
+        <option value="$PROJECT_DIR$/pages/users/overviewUsers.php" />
+        <option value="$PROJECT_DIR$/pages/users/updateUser.php" />
       </list>
     </option>
   </component>
@@ -178,12 +184,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516011955872</updated>
-      <workItem from="1516011957696" duration="3793000" />
+      <workItem from="1516011957696" duration="3822000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3793000" />
+    <option name="totallyTimeSpent" value="3822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -236,37 +242,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/users/createUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1015">
+          <caret line="62" column="69" lean-forward="false" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/users/deleteUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="12" column="95" lean-forward="false" selection-start-line="12" selection-start-column="95" selection-end-line="12" selection-end-column="95" />
+          <folding>
+            <marker date="1516017272094" expanded="true" signature="854:1003" ph="..." />
+            <marker date="1516017272094" expanded="true" signature="1079:1228" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/users/overviewUsers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="884">
+          <caret line="52" column="4" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
           <folding>
-            <marker date="1516017146493" expanded="true" signature="5057:5063" ph="..." />
-            <marker date="1516017146493" expanded="true" signature="5057:5071" ph="..." />
+            <marker date="1516017272037" expanded="true" signature="1148:1776" ph="..." />
+            <marker date="1516017272037" expanded="true" signature="1181:1776" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/users/updateUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/users/createUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1015">
-          <caret line="62" column="69" lean-forward="false" selection-start-line="62" selection-start-column="69" selection-end-line="62" selection-end-column="69" />
+        <state relative-caret-position="374">
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
           <folding />
         </state>
       </provider>

@@ -1,58 +1,45 @@
 <?php
+    session_start();
 
-//Includes
-include '../../class/Crud.php';
-include '../../class/LoginHandler.php';
-session_start();
-
-
-(new LoginHandler())->checkRights();
-
-
-
-//Variables die worden gebruikt voor het uitvoeren van de query
-//$orderBy = "ASC";
-//$table = "users";
-//$where = 'id';
-//$columnSort = "userEmail";
-//$id = $_GET['id'];
-//$columns = array("userEmail", "userPassword", "userPhoto", "userCB");
-
-$columns = array("userEmail", "userPassword", "userPhoto", "userCB", "userRights");
-$table = "users";
-$where = 'userId';
-$columnSort = "userEmail";
-$id = $_GET['id'];
-
-
-
-
+    include '../../class/Crud.php';
+    include '../../class/LoginHandler.php';
 
     $query = new Crud();
 
+    (new LoginHandler())->checkRights();
 
-//Ook nieuwe invoice maken
-if(isset($_POST['aanmaken']))
-{
-    if(!empty($_POST['userEmail'] && md5($_POST['userPassword']) && $_POST['userPhoto']&& $_POST['userCB']&& $_POST['userRights']))
+    /*
+     * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
+     */
+    $columns = array("userEmail", "userPassword", "userPhoto", "userCB", "userRights");
+    $table = "gebruikers";
+    $where = 'gebruikersId';
+    $columnSort = "gebruikersEmail";
+    $id = $_GET['id'];
+
+
+    if(isset($_POST['aanmaken']))
     {
-        $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
-        echo $query->updateRow($table, $columns, $where, $values, $id);
-        echo 'Het updaten is gelukt';
+        if(!empty($_POST['userEmail'] && md5($_POST['userPassword']) && $_POST['userPhoto']&& $_POST['userCB']&& $_POST['userRights']))
+        {
+            $values = array($_POST['userEmail'], md5($_POST['userPassword']), $_POST['userPhoto'], $_POST['userCB'], $_POST['userRights']);
+            echo $query->updateRow($table, $columns, $where, $values, $id);
+            echo 'Het updaten is gelukt';
+            header( "refresh:0.5;url=overviewUsers.php" );
+        }
+
+        else
+        {
+            echo"Niet alles is ingevuld, probeer het opnieuw";
+        }
+
+    }
+
+    if(isset($_POST['annuleren']))
+    {
+        echo 'Het toevoegen is geannuleerd';
         header( "refresh:0.5;url=overviewUsers.php" );
     }
-
-    else
-    {
-        echo"Niet alles is ingevuld, probeer het opnieuw";
-    }
-
-}
-if(isset($_POST['annuleren']))
-{
-    echo 'Het toevoegen is geannuleerd';
-    header( "refresh:0.5;url=overviewUsers.php" );
-}
 
 //echo $query->insertIntoTable($table, $columns, $values);
 ?>
