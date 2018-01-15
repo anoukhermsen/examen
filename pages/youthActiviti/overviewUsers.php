@@ -49,7 +49,7 @@
                                 <td>".$value['gebruikersTussenvoegsel']."</td>
                                 <td>".$value['gebruikersAchternaam']."</td>
                                 <td><a href=../users/updateActiviti.php?id=". $value['gebruikersId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../users/archiveActiviti.php?id=". $value['gebruikersId'] ."><img src='../../img/delete.png'></a></td>
+                                <td><a href=../users/deleteUser.php?id=". $value['gebruikersId'] ."><img src='../../img/archiveer.png'></a></td>
                         ";
                 }
             ?>

@@ -47,7 +47,7 @@ class LoginHandler extends DBConfi
             if ($this->getUserRights() == 0)
             {
                 $_SESSION['userRights'] = 0;
-                header('location: users/overviewUsers.php');
+                header('location: users/overviewActiviti.php');
             }
 
             if ($this->getUserRights() == 1) {
@@ -79,7 +79,7 @@ class LoginHandler extends DBConfi
             if ($_SESSION['userRights'] == 1)
             {
                 $_SESSION['userRights'] = 1;
-                header('location: /overviewUsers.php');
+                header('location: /overviewActiviti.php');
             }
         }
 

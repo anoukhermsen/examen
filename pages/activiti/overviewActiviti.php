@@ -17,8 +17,8 @@
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
      */
-    $table = "gebruikers";
-    $columnSort = "gebruikersEmail";
+    $table = "activiteit";
+    $columnSort = "activiteitId";
     $orderBy = "ASC";
 ?>
 
@@ -28,10 +28,8 @@
         <table>
             <thead>
                 <tr>
-                    <th>Gebruikers Email</th>
-                    <th>Gebruikers Voornaam</th>
-                    <th>Gebruikers Tussenvoegsel</th>
-                    <th>Gebruikers Achternaam</th>
+                    <th>Activiteits Naam</th>
+                    <th>Activiteits Startdatum</th>
                     <th>Bewerken</th>
                     <th>Archiveren</th>
                 </tr>
@@ -40,16 +38,19 @@
             <?php
                 foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
                 {
+                    /*
+                     * Het genereren van de datum van het Engelse/Amerikaanse begrip naar het Nederlands
+                     */
+                    $myDateTime = DateTime::createFromFormat('Y-m-d', $value['activiteitStartdatum']);
+                    $newDateString = $myDateTime->format('d-m-Y');
                     //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
                     echo" 
                         <tbody>
                             <tr>
-                                <td>".$value['gebruikersEmail']."</td>
-                                <td>".$value['gebruikersVoornaam']."</td>
-                                <td>".$value['gebruikersTussenvoegsel']."</td>
-                                <td>".$value['gebruikersAchternaam']."</td>
-                                <td><a href=../users/updateActiviti.php?id=". $value['gebruikersId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../users/archiveActiviti.php?id=". $value['gebruikersId'] ."><img src='../../img/delete.png'></a></td>
+                                <td>".$value['activiteitNaam']."</td>
+                                <td>".$newDateString."</td>
+                                <td><a href=../activiti/updateActiviti.php?id=". $value['activiteitId'] ."><img src='../../img/edit.png'></a></td>
+                                <td><a href=../activiti/updateActiviti.php?id=". $value['activiteitId'] ."><img src='../../img/archiveer.png'></a></td>
                         ";
                 }
             ?>

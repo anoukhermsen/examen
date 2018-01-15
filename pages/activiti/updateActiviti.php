@@ -18,29 +18,21 @@
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
      */
-    $columns = array("gebruikersEmail", "gebruikersWachtwoord", "gebruikersVoornaam", "gebruikersTussenvoegsel", "gebruikersAchternaam");
-    $table = "gebruikers";
-    $where = 'gebruikersId';
-    $columnSort = "gebruikersEmail";
+    $columns = array("activiteitNaam", "activiteitStartdatum");
+    $table = "activiteit";
+    $where = 'activiteitId';
+    $columnSort = "activiteitId";
     $id = $_GET['id'];
 
 
     if(isset($_POST['aanmaken']))
     {
-        if(!empty($_POST['gebruikersEmail'] && md5($_POST['gebruikersWachtwoord']) && $_POST['gebruikersVoornaam']&& $_POST['gebruikersTussenvoegsel']&& $_POST['gebruikersAchternaam']))
+        if(!empty($_POST['activiteitNaam'] && md5($_POST['activiteitStartdatum'])))
         {
-            if (preg_match("/almere.nl/i", $_POST['gebruikersEmail']))
-            {
-                $values = array($_POST['gebruikersEmail'], md5($_POST['gebruikersWachtwoord']), $_POST['gebruikersVoornaam'], $_POST['gebruikersTussenvoegsel'], $_POST['gebruikersAchternaam']);
-                echo $query->updateRow($table, $columns, $where, $values, $id);
-                echo 'Het updaten is gelukt';
-                header("refresh:0.5;url=overviewActiviti.php");
-            }
-
-            else
-            {
-                echo "Gebruik uw bedrijfs email";
-            }
+            $values = array($_POST['activiteitNaam'], $_POST['activiteitStartdatum']);
+            echo $query->updateRow($table, $columns, $where, $values, $id);
+            echo 'Het updaten is gelukt';
+            header("refresh:0.5;url=overviewActiviti.php");
         }
 
         else
