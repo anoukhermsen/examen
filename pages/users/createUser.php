@@ -33,7 +33,7 @@
 
                 else
                 {
-                    echo "Gebruik uw schoolmail";
+                    echo "Gebruik uw bedrijfs email";
                 }
             }
 
