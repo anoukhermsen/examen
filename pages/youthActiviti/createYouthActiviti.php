@@ -13,6 +13,7 @@
 
     $query = new Sql();
 
+    $table = 'activiteit';
     /*
      * Het inserten into de data base.
      * In dit stuk code is met behulp van Preg match een beveiliging er op gezet dat alleen een bepaald soort email kan worden toe gevoegt,
@@ -45,27 +46,19 @@
 
         //Het formulier waarbij je de gebruikers kunnen worden toe gevoegd
         echo '
-                <form method="post">
-                    Gebruikers Email:
-                        <input type="text" name="gebruikersEmail">
-                            <br>
-                    Gebruikers Wachtwoord:
-                        <input type="password" name="gebruikersWachtwoord">
-                           <br>
-                    Gebruikers Voornaam:
-                        <input type="text" name="gebruikersVoornaam">
-                            <br>
-                    Gebruikers Tussenvoegsel:
-                        <input type="text" name="gebruikersTussenvoegsel">
-                            <br>
-                    Gebruikers Achternaam:
-                        <input type="text" name="gebruikersAchternaam">
-                            <br>
-                        <input type="submit" name="submit">
-                </form>
-        
-        
-        ';
+                <select name="catId">';
+
+//                foreach ($query->selectFromTable($table, ) as $value)
+//                {
+//                    //De dropdown waarmee je de Categorieën gemakkelijk kunt selecteren
+//
+//                    echo "
+//
+//                            <option value='".$value['catId']."'>".$value['catName']."</option>
+//
+//                        ";
+//                }
+
 ?>
 
 
