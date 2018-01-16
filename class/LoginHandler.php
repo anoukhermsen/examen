@@ -4,10 +4,9 @@
 
 class LoginHandler extends DBConfi
 {
-    private $userMail;
-    private $userPassword;
-    private $userRights;
-    private $userId;
+    private $gebruikersEmail;
+    private $gebruikersWachtwoord;
+    private $gebruikersId;
     /*Haalt ook gegevens uit de DBConfi.php*/
     public function __construct()
     {
@@ -16,15 +15,17 @@ class LoginHandler extends DBConfi
 
     /*Gegevens van de gebruikers uit de database halen en kijken of het wachtwoord en de gebruikersnaam met de gegevens uit de textfields met elkaar overeenkomen
     SESSION op TRUE zetten en rechten geven aan de gebruiker*/
-    public function logIn($userEmail, $userPassword)
+    public function logIn($gebruikersEmail, $gebruikersWachtwoord)
     {
         $this->openConnection();
-        $this->setUserPassword($userPassword);//SELECT * FROM `users` WHERE `userEmail` = "test@test.nl"
-        $stmt = $this->getConn()->prepare('SELECT * FROM `users` WHERE userEmail= :userEmail AND userPassword= :userPassword');
-        $stmt->bindParam(':userEmail', $userEmail);
-        $stmt->bindParam(':userPassword', $this->getUserPassword());
+        $this->setGebruikersWachtwoord($gebruikersWachtwoord);//SELECT * FROM `gebruikers` WHERE `gebruikersEmail``gebruikersWachtwoord`
+        $stmt = $this->getConn()->prepare('SELECT * FROM `gebruikers` WHERE gebruikersEmail= :gebruikersEmail AND gebruikersWachtwoord= :gebruikersWachtwoord');
+        $stmt->bindParam(':gebruikersEmail', $gebruikersEmail);
+        $stmt->bindParam(':gebruikersWachtwoord', $this->getGebruikersWachtwoord());
         $stmt->execute();
 
+        var_dump($gebruikersEmail);
+        var_dump($gebruikersWachtwoord);
 
 //        $this->setUserRights(($stmt->fetch()['cusRights']));
 //        $this->setUserId(($stmt->fetch()['cusId']));
@@ -35,25 +36,13 @@ class LoginHandler extends DBConfi
 
         if ($stmt->rowCount() != 0) // Kijkt of er een hit is gevonden in de DB met de username en password
         {
-
             session_start();
             $_SESSION['login'] = true;
             foreach ($stmt->fetchAll() AS $hit)
             {
-                $this->setUserRights($hit['userRights']);
-                $_SESSION['userId'] = $hit['userId'];
-            }
 
-            if ($this->getUserRights() == 0)
-            {
-                $_SESSION['userRights'] = 0;
-                header('location: users/overviewActiviti.php');
-            }
-
-            if ($this->getUserRights() == 1) {
-                $_SESSION['userRights'] = 1;
-                header('location:customer/overviewCustomer.php');
-                //echo "hoi";
+                $_SESSION['gebruikersId'] = $hit['gebruikersId'];
+                header('location: pages/users/overviewUsers.php');
             }
         }
 
@@ -70,47 +59,12 @@ class LoginHandler extends DBConfi
     {
         if(isset($_SESSION['login']) && $_SESSION['login'] == true)  //Kijkt of de Session is ingesteld en true isl
         {
-            if ($_SESSION['userRights'] == 0)
-            {
-                $_SESSION['userRights'] = 0;
                 header('location: ../dashboard.php');
-            }
-
-            if ($_SESSION['userRights'] == 1)
-            {
-                $_SESSION['userRights'] = 1;
-                header('location: /overviewActiviti.php');
-            }
         }
 
         else
         {
             header('Location:../login.php');
-        }
-    }
-
-    /*Checken of je bent ingelogd en daarna bekijken of je op deze pagina mag komen en je anders terug sturen*/
-    public function checkRights()
-    {
-        if(isset($_SESSION['login']) && $_SESSION['login'] == true)  //Kijkt of de Session is ingesteld en true isl
-        {
-            if ($_SESSION['userRights'] == 1)
-            {
-                //$_SESSION['userRights'] = 1;
-                header('location: ../index.php');
-                exit();
-            }
-
-            if ($_SESSION['userRights'] == 0)
-            {
-                //$_SESSION['userRights'] = 0;
-            }
-        }
-
-        else
-        {
-            header('Location:../login.php');
-            exit();
         }
     }
 
@@ -123,49 +77,38 @@ class LoginHandler extends DBConfi
 ///////////////////////////////////////////////////////////////Getters en Setters///////////////////////////////////////
 
     /*Gebruikers email*/
-    public function getUserMail()
+    public function getGebruikersEmail()
     {
-        return $this->userMail;
+        return $this->gebruikersEmail;
     }
 
-    public function setUserMail($userMail)
+    public function setGebruikersEmail($gebruikersEmail)
     {
-        $this->userMail = $userMail;
+        $this->gebruikersEmail = $gebruikersEmail;
     }
 
     /*Gebruikers password met md5*/
-    public function getUserPassword()
+    public function getGebruikersWachtwoord()
     {
 
-        return $this->userPassword;
+        return $this->gebruikersWachtwoord;
     }
 
-    public function setUserPassword($userPassword)
+    public function setGebruikersWachtwoord($gebruikersWachtwoord)
     {
-        $this->userPassword = md5($userPassword);
+        $this->gebruikersWachtwoord = md5($gebruikersWachtwoord);
         //$this->password = $password;
     }
 
-    /*Gebruikers rechten*/
-    public function getUserRights()
-    {
-        return $this->userRights;
-    }
-
-    public function setUserRights($userRights)
-    {
-        $this->userRights = $userRights;
-    }
-
     /*Gebruikers id*/
-    public function getUserId()
+    public function getGebruikersId()
     {
-        return $this->userId;
+        return $this->gebruikersId;
     }
 
-    public function setUserId($userId)
+    public function setGebruikersId($gebruikersId)
     {
-        $this->userId = $userId;
+        $this->gebruikersId = $gebruikersId;
     }
 
 }

@@ -27,14 +27,14 @@
 
     if(isset($_POST['aanmaken']))
     {
-        if(!empty($_POST['gebruikersEmail'] && md5($_POST['gebruikersWachtwoord']) && $_POST['gebruikersVoornaam']&& $_POST['gebruikersTussenvoegsel']&& $_POST['gebruikersAchternaam']))
+        if(!empty($_POST['gebruikersEmail'] && md5($_POST['gebruikersWachtwoord']) && $_POST['gebruikersVoornaam'] && $_POST['gebruikersAchternaam']))
         {
             if (preg_match("/almere.nl/i", $_POST['gebruikersEmail']))
             {
                 $values = array($_POST['gebruikersEmail'], md5($_POST['gebruikersWachtwoord']), $_POST['gebruikersVoornaam'], $_POST['gebruikersTussenvoegsel'], $_POST['gebruikersAchternaam']);
                 echo $query->updateRow($table, $columns, $where, $values, $id);
                 echo 'Het updaten is gelukt';
-                header("refresh:0.5;url=overviewActiviti.php");
+                header("refresh:0.5;url=overviewUsers.php");
             }
 
             else
@@ -53,7 +53,7 @@
     if(isset($_POST['annuleren']))
     {
         echo 'Het toevoegen is geannuleerd';
-        header( "refresh:0.5;url=overviewActiviti.php" );
+        header( "refresh:0.5;url=overviewUsers.php" );
     }
 
 //echo $query->insertIntoTable($table, $columns, $values);
@@ -72,7 +72,7 @@
             <form method="post">
                     <br>
                     Gebruikers Email:
-                        <input type='email' name='gebruikersEmail' value='<?php $value['gebruikersEmail'] ?>'>
+                        <input type='email' name='gebruikersEmail' value='<?php echo $value['gebruikersEmail'] ?>'>
                             </br>
                     Wachtwoord:
                         <input type='password' name='gebruikersWachtwoord' value='<?php echo $value['gebruikersWachtwoord'] ?>'>

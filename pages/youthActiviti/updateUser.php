@@ -72,7 +72,7 @@
             <form method="post">
                     <br>
                     Gebruikers Email:
-                        <input type='email' name='gebruikersEmail' value='<?php $value['gebruikersEmail'] ?>'>
+                        <input type='email' name='gebruikersEmail' value='<?php echo $value['gebruikersEmail'] ?>'>
                             </br>
                     Wachtwoord:
                         <input type='password' name='gebruikersWachtwoord' value='<?php echo $value['gebruikersWachtwoord'] ?>'>
