@@ -16,7 +16,7 @@
     include '../../class/LoginHandler.php';
 
 
-    (new LoginHandler())->checkRights();
+(new LoginHandler())->checkLoggedIn();
 
 
     $columns = "instituutArchief";

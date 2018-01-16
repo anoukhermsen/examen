@@ -5,6 +5,9 @@
  * Date: 16-1-2018
  * Time: 09:36
  */
+include '../class/LoginHandler.php';
+session_start();
+(new LoginHandler())->checkLoggedIn();
 ?>
 <html>
     <head>
@@ -25,10 +28,7 @@
             Jongere
         </th>
         <th>
-            Instituut aan jongere koppelen
-        </th>
-        <th>
-            Activiteit aan jongere koppelen
+
         </th>
         <tr>
             <td>
@@ -42,13 +42,6 @@
             </td>
             <td>
                 <a href="youth/createYouth.php">Nieuwe jongere aanmaken</a>
-            </td>
-            <td>
-                <a href="youthInstitute/createYouthInstitute.php">Jongere toevoegen aan een instituut</a>
-            </td>
-
-            <td>
-                <a href="youthActiviti/createYouthActiviti.php">Jongere toevoegen aan een activiteit</a>
             </td>
         </tr>
         <tr>
@@ -65,10 +58,7 @@
                 <a href="youth/overviewYouth.php">Overzicht jongeren</a>
             </td>
             <td>
-                <a href="youthInstitute/overviewYouthInstitute.php">Overzicht welke jongere zit bij welk instituut</a>
-            </td>
-            <td>
-                <a href="youthActiviti/overviewYouthActiviti.php">Overzicht welke jongere doet welke activiteit</a>
+                <a href="../logout.php">Uitloggen</a>
             </td>
         </tr>
 

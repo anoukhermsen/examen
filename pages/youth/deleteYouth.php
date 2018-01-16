@@ -17,8 +17,7 @@ $query = new Crud();
 include '../../class/LoginHandler.php';
 session_start();
 
-(new LoginHandler())->checkRights();
-
+(new LoginHandler())->checkLoggedIn();
 
 
 //Variables die worden gebruikt in het inserten in een database

@@ -17,7 +17,7 @@
 
     $query = new Crud();
 
-    (new LoginHandler())->checkRights();
+(new LoginHandler())->checkLoggedIn();
 
     /*
      * Variabelen voor de database

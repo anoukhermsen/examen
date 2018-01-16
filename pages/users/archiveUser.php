@@ -18,7 +18,7 @@
     include '../../class/LoginHandler.php';
 
 
-    (new LoginHandler())->checkRights();
+(new LoginHandler())->checkLoggedIn();
 
     /*
      * De variable's die er worden gebruikt om de gekozen gebruiker te kunnen verwijderen door middel van het gebruiken van een $_GET id

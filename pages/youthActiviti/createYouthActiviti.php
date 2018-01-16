@@ -11,6 +11,7 @@
     include '../../class/LoginHandler.php';
 
     session_start();
+(new LoginHandler())->checkLoggedIn();
 
     $query = new Crud();
     $sql = new Sql();

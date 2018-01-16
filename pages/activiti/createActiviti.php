@@ -12,6 +12,7 @@
     session_start();
 
     $query = new Crud();
+(new LoginHandler())->checkLoggedIn();
 
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen

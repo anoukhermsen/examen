@@ -59,7 +59,7 @@ class LoginHandler extends DBConfi
     {
         if(isset($_SESSION['login']) && $_SESSION['login'] == true)  //Kijkt of de Session is ingesteld en true isl
         {
-                header('location: ../dashboard.php');
+
         }
 
         else

@@ -16,7 +16,7 @@
 
     session_start();
 
-    (new LoginHandler())->checkRights();
+(new LoginHandler())->checkLoggedIn();
     $query = new Crud();
 
     /*
