@@ -1,15 +1,11 @@
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
-</head>
-<body>
 <?php
 /**
  * Created by PhpStorm.
- * User: melan
- * Date: 15-1-2018
- * Time: 13:45
+ * User: Anouk Hermsen
+ * Date: 16-1-2018
+ * Time: 10:10
  */
+
 
     session_start();
 
@@ -26,10 +22,12 @@
     $columnSort = "gebruikersEmail";
     $orderBy = "ASC";
     $where = "gebruikersArchief";
-    $id = 0;
+    $id = 1;
 ?>
 
+<html>
 
+    <body id="top">
         <table>
             <thead>
                 <tr>
@@ -37,8 +35,8 @@
                     <th>Gebruikers Voornaam</th>
                     <th>Gebruikers Tussenvoegsel</th>
                     <th>Gebruikers Achternaam</th>
-                    <th>Bewerken</th>
-                    <th>Archiveren</th>
+                    <th>Terugzetten</th>
+                    <th>Verwijderen</th>
                 </tr>
             </thead>
 
@@ -54,8 +52,8 @@
                                 <td>".$value['gebruikersVoornaam']."</td>
                                 <td>".$value['gebruikersTussenvoegsel']."</td>
                                 <td>".$value['gebruikersAchternaam']."</td>
-                                <td><a href=../users/updateUser.php?id=". $value['gebruikersId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../users/archiveUser.php?id=". $value['gebruikersId'] ."><img src='../../img/archiveer.png'></a></td>
+                                <td><a href=../users/setbackUser.php?id=". $value['gebruikersId'] ."><img src='../../img/back.png'></a></td>
+                                <td><a href=../users/deleteUser.php?id=". $value['gebruikersId'] ."><img src='../../img/delete.png'></a></td>
                         ";
                 }
             ?>

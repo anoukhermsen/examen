@@ -25,6 +25,7 @@
     $columnSort = "jongereRoepnaam";
     $orderBy = "ASC";
     $where = "jongereArchief";
+    $id = 0;
 ?>
 
 
@@ -45,7 +46,7 @@
             </thead>
 
             <?php
-                foreach ($query->selectFromTable($table, null, null, null, null, $where,  $columnSort, $orderBy) as $value)
+                foreach ($query->selectFromTable($table, null, $where, $id, null, null, $columnSort, $orderBy) as $value)
                 {
                     /**Veranderen van amerikaanse datum naar nederlands
                      * Van 2001-01-02 naar 02-01-2001*/
@@ -64,7 +65,7 @@
                                 <td><a href=../youthActiviti/createYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
                                 <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
                                 <td><a href=../youth/updateYouth.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../youth/deleteYouth.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
+                                <td><a href=../youth/archiveYouth.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
                                 
                         ";
                 }

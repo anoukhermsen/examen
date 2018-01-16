@@ -2,62 +2,67 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
 </head>
-
+<body>
 <?php
 /**
  * Created by PhpStorm.
  * User: Anouk Hermsen
- * Date: 15-1-2018
- * Time: 14:22
+ * Date: 16-1-2018
+ * Time: 10:13
  */
-    session_start();
 
-    include '../../class/Sql.php';
-    include '../../class/LoginHandler.php';
+//Aanroepen van de gebruikte classes
+include '../../class/Crud.php';
+$query = new Crud();
+include '../../class/LoginHandler.php';
+session_start();
 
-
-    //(new LoginHandler())->checkRights();
-
-
-    $columns = "jongereArchief";
-    $table = "jongere";
-    $where = 'jongereId';
-    $id = $_GET['id'];
-
-    $query = new Sql();
+(new LoginHandler())->checkRights();
 
 
-    /*Archiveren of niet*/
 
-    if (isset($_POST['Ja']))
-    {
+//Variables die worden gebruikt in het inserten in een database
+$columnId = "jongereId";
+$table = "jongere";
+$id = $_GET['id'];
 
-        $values = 1;
-        $query->archiveRow($table, $columns, $values, $where, $id);
-        echo'de gegevens worden gearchiveerd';
-        header('location: overviewYouth.php');
-    }
+if (isset($_POST['Ja']))
+{
+    echo $query->deleteRow($table, $columnId, $id);
 
-    if (isset($_POST['Nee']))
-    {
-        echo"de gegevens worden niet verwijderd";
-        header('location: overviewYouth.php');
-    }
+    header('location: overviewArchivedYouth.php');
+}
+
+if (isset($_POST['Nee']))
+{
+    header('location: overviewArchivedYouth.php');
+}
 ?>
 
 
-    <body>
-        Weet u zeker dat u deze gebruiker wil archiveren?
-        <br>
 
-            <?php
-                echo'
-                    <form method="post">
-                      <input type="submit" value="Ja" name="Ja">
-                      <input type="submit" value="Nee" name="Nee">
-                      <input type="hidden" name="id" value="'. $_GET['id'] .'">
-                    </form>
+
+            <form method="post">
+                <fieldset>
+
+                    Weet u zeker dat u deze jongere wil verwijderen?
+                        <br>
+                    <?php
+                    echo'
+
+                        <input type="submit" value="Ja" name="Ja" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                        <input type="submit" value="Nee" name="Nee" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                    <input type="hidden" name="id" value="'. $_GET['id'] .'">
                     ';
-            ?>
-    </body>
+                    ?>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</body>
 </html>
+
+
+
+

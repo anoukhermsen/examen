@@ -1,55 +1,68 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
+</head>
+<body>
 <?php
 /**
  * Created by PhpStorm.
- * User: melan
- * Date: 15-1-2018
- * Time: 13:45
+ * User: Anouk Hermsen
+ * Date: 16-1-2018
+ * Time: 10:13
  */
 
-    session_start();
+//Aanroepen van de gebruikte classes
+include '../../class/Crud.php';
+$query = new Crud();
+include '../../class/LoginHandler.php';
+session_start();
 
-    include '../../class/Sql.php';
-    $query = new Sql();
-    include '../../class/LoginHandler.php';
+(new LoginHandler())->checkRights();
 
 
-    //(new LoginHandler())->checkRights();
 
-    /*
-     * De variable's die er worden gebruikt om de gekozen gebruiker te kunnen verwijderen door middel van het gebruiken van een $_GET id
-     */
-    $columns = "gebruikersArchief";
-    $table = "gebruikers";
-    $where = 'gebruikersId';
-    $columnSort = "gebruikersEmail";
-    $id = $_GET['id'];
+//Variables die worden gebruikt in het inserten in een database
+$columnId = "gebruikersId";
+$table = "gebruikers";
+$id = $_GET['id'];
 
-    if (isset($_POST['Ja']))
-    {
-        $values = 1;
-        $query->archiveRow($table, $columns, $values, $where, $id);
-        header('location: overviewUsers.php');
-    }
+if (isset($_POST['Ja']))
+{
+    echo $query->deleteRow($table, $columnId, $id);
 
-    if (isset($_POST['Nee']))
-    {
-        header('location: overviewUsers.php');
-    }
+    header('location: overviewArchivedUsers.php');
+}
+
+if (isset($_POST['Nee']))
+{
+    header('location: overviewArchivedUsers.php');
+}
 ?>
 
-<html>
-    <body>
-        Weet u zeker dat u deze gebruiker wil verwijderen?
-        <br>
 
-            <?php
-                echo'
-                    <form method="post">
-                      <input type="submit" value="Ja" name="Ja">
-                      <input type="submit" value="Nee" name="Nee">
-                      <input type="hidden" name="id" value="'. $_GET['id'] .'">
-                    </form>
+
+
+            <form method="post">
+                <fieldset>
+
+                    Weet u zeker dat u deze gebruiker wil verwijderen?
+                        <br>
+                    <?php
+                    echo'
+
+                        <input type="submit" value="Ja" name="Ja" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                        <input type="submit" value="Nee" name="Nee" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                    <input type="hidden" name="id" value="'. $_GET['id'] .'">
                     ';
-            ?>
-    </body>
+                    ?>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</body>
 </html>
+
+
+
+
