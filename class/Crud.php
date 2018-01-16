@@ -64,34 +64,10 @@ class Crud extends DBConfi
                 }
             }
 
-
         }
 
-
-        //SELECT * FROM $tableName JOIN category ON category.catId = products.catId ORDER BY $sort
-        if($row != null)
-        {
-
-            $totaal = count($coupleTable);
-
-            for ($x = 0; $x < $totaal; $x ++)
-            {
-                $query .= " JOIN ";
-                $aantal = count($row);
-
-                for ($i = 0; $i < $aantal; $i ++)
-                {
-                    $query .= $coupleTable[$x] . " ON ";
-                    $query .= $coupleTable[$x] . "." . $row[$i] . " = ";
-                    $query .= $table . "." . $row[$i++];
-                }
-            }
-        }
         //SELECT * FROM participate JOIN users ON users.userId = participate.userId ORDER BY users.userId ASC
         $query .= " ORDER BY ". $columnSort. " " . $orderBy;
-
-
-
 
         $this->setQuery($this->getConn()->prepare($query));
 
