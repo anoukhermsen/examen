@@ -37,6 +37,8 @@ class Sql extends DBConfi
         $this->getQuery()->execute();
 
         //BIJ RETURN QUERY DE EXECUTE UITZETTEN EN IN DE UPDATE PAGINA ECHO $query->...
+
+        echo '2';
     }
 
     /*
