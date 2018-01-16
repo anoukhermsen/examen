@@ -22,6 +22,7 @@ class Sql extends DBConfi
     // Een Dynamic functie om een geselecteerde rij te kunnen archiveren
     public function archiveRow($table, $columns,  $values, $columnId, $id)
     {
+        echo "1";
         /*
          * UPDATE $table SET $column WHERE $columnId = $value;
          * Query opbouwen
