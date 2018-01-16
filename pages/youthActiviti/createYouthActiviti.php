@@ -29,7 +29,7 @@
                     $values = array($_POST['activiteitId'], $_GET['id']);
                     $query->insertIntoTable($table, $columns, $values);
                     echo 'Het toevoegen is gelukt';
-                    //header("refresh:0.5;url=overviewActiviti.php");
+                    header("refresh:0.5;url= ../youth/overviewYouth.php");
 
         }
 
