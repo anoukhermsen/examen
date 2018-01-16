@@ -43,7 +43,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Activiteits Naam</th>
+                    <th>Activiteit Naam</th>
                     <th>Inschrijfdatum</th>
                     <th>Afgerond</th>
                     <th>Bewerken</th>
@@ -74,8 +74,8 @@
                                 <td>".$value['activiteitNaam']."</td>
                                 <td>".$newDateTimeString."</td>
                                 <td>".$value['activiteitAfgerond']."</td>
-                                <td><a href=../youthActiviti/createYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
-                                <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
+                                <td><a href=../youthActiviti/updateYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
+                                <td><a href=../youthActiviti/archiveYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
                         ";
 
                 }
@@ -110,8 +110,8 @@
                             <tr>
                                 <td>".$value['instituutNaam']."</td>
                                 <td>".$newDateTimeString."</td>
-                                <td><a href=../youthActiviti/createYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
-                                <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
+                                <td><a href=../youthInstitute/updateYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
+                                <td><a href=../youthInstitute/archiveYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
                         ";
 
         }
