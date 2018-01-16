@@ -4,11 +4,9 @@
 </head>
 
 <?php
-/**
- * Created by PhpStorm.
- * User: Anouk Hermsen
- * Date: 15-1-2018
- * Time: 14:22
+ /* Created by PhpStorm.
+ * User: melan
+ * Date: 16-1-2018
  */
     session_start();
 
@@ -16,7 +14,7 @@
     $query = new Crud();
     include '../../class/LoginHandler.php';
 
-    //(new LoginHandler())->checkLoggedIn();
+    //(new LoginHandler())->checkRights();
 
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
@@ -24,24 +22,25 @@
     $table = "jongere";
     $columnSort = "jongereRoepnaam";
     $orderBy = "ASC";
-    $where = "jongereArchief";
-    $id = 0;
+    $where = "jongereId";
+    $id = $_GET['id'];
 ?>
 
 
     <body id="top">
+    <?php
+        foreach ($query->selectFromTable($table, null, $where, $id, null, null, $columnSort, $orderBy) as $value)
+        {
+            echo "<h1>".$value['jongereRoepnaam']." ".$value['jongereTussenvoegsel']." ".$value['jongereAchternaam']."</h1>";
+        }
+    ?>
+
         <table>
             <thead>
                 <tr>
-                    <th>Roepnaam</th>
-                    <th>Tussenvoegsel</th>
-                    <th>Achternaam</th>
-                    <th>Geboortedatum</th>
                     <th>Inschrijfdatum</th>
-                    <th>Inschrijven voor een Activiteit</th>
-                    <th>Inschrijven voor een Instituut</th>
+                    <th>Afgerond</th>
                     <th>Informatie overzicht</th>
-                    <th> </th>
                     <th>Bewerken</th>
                     <th>Archiveren</th>
                 </tr>
@@ -66,8 +65,7 @@
                                 <td>".$newDateTimeString."</td>
                                 <td><a href=../youthActiviti/createYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
                                 <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
-                                <td><a href=../youth/overviewYouthInformation.php?id=". $value['jongereId'] ."><img src='../../img/info.png'></a></td>
-                                <td></td>
+                                <td><a href=../youth/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
                                 <td><a href=../youth/updateYouth.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
                                 <td><a href=../youth/archiveYouth.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
                                 
