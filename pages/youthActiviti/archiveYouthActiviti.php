@@ -18,22 +18,22 @@
     /*
      * De variable's die er worden gebruikt om de gekozen gebruiker te kunnen verwijderen door middel van het gebruiken van een $_GET id
      */
-    $columns = "gebruikersArchief";
-    $table = "gebruikers";
-    $where = 'gebruikersId';
-    $columnSort = "gebruikersEmail";
+    $columns = "jongereActiviteitArchief";
+    $table = "jongereActiviteit";
+    $where = 'jongereActiviteitId';
+    $columnSort = "jongereActiviteitId";
     $id = $_GET['id'];
 
     if (isset($_POST['Ja']))
     {
         $values = 1;
         $query->archiveRow($table, $columns, $values, $where, $id);
-        header('location: overviewActiviti.php');
+        header('location: overviewYouthActiviti.php');
     }
 
     if (isset($_POST['Nee']))
     {
-        header('location: overviewActiviti.php');
+        header('location: overviewYouthActiviti.php');
     }
 ?>
 
