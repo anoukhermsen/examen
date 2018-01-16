@@ -6,13 +6,15 @@
  * Time: 13:45
  */
 
-include 'DBConfi.php';
+include_once 'DBConfi.php';
 class Sql extends DBConfi
 {
     private $_table;
     private $_columns;
     private $_columnId;
     private $_values;
+    private $jongereId;
+
 
     public function __construct()
     {
@@ -78,9 +80,17 @@ class Sql extends DBConfi
     }
 
 
-    public function joinJongereActiviteit()
+    public function joinJongereActiviteit($jongereId)
     {
-        $this->setQuery($this->getConn()->prepare('SELECT * FROM jongereactiviteit JOIN activiteit ON jongereactiviteit.activiteitId = activiteit.activiteitId'));
+        $this->setQuery($this->getConn()->prepare("SELECT * FROM jongereactiviteit JOIN activiteit ON jongereactiviteit.activiteitId = activiteit.activiteitId WHERE jongereId = ". $jongereId));
+
+        $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
+    }
+
+    public function joinJongereInstituut($jongereId)
+    {
+        $this->setQuery($this->getConn()->prepare("SELECT * FROM `jongereinstituut` JOIN instituut ON jongereinstituut.instituutId = instituut.instituutId WHERE jongereId =". $jongereId));
 
         $this->getQuery()->execute();
         return ($this->getQuery()->fetchAll());
@@ -129,4 +139,21 @@ class Sql extends DBConfi
     {
         $this->_values = $values;
     }
+
+    /**
+     *Het ophalen van de jongere Id
+     */
+    public function getJongereId()
+    {
+        return $this->jongereId;
+    }
+
+    /**
+     * Het zetten van de jongere Id
+     */
+    public function setJongereId($jongereId)
+    {
+        $this->_jongereId = $jongereId;
+    }
+
 }

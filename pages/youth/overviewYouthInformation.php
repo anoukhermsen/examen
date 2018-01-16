@@ -11,8 +11,11 @@
     session_start();
 
     include '../../class/Crud.php';
-    $query = new Crud();
+    include '../../class/Sql.php';
     include '../../class/LoginHandler.php';
+
+    $query = new Crud();
+    $sql = new Sql();
 
     //(new LoginHandler())->checkRights();
 
@@ -35,46 +38,87 @@
         }
     ?>
 
+        <h2>Activiteiten Tabel</h2>
+
         <table>
             <thead>
                 <tr>
+                    <th>Activiteits Naam</th>
                     <th>Inschrijfdatum</th>
                     <th>Afgerond</th>
-                    <th>Informatie overzicht</th>
                     <th>Bewerken</th>
                     <th>Archiveren</th>
                 </tr>
             </thead>
 
             <?php
-                foreach ($query->selectFromTable($table, null, $where, $id, null, null, $columnSort, $orderBy) as $value)
+                foreach ($sql->joinJongereActiviteit($id) as $value)
                 {
+                    if ($value['activiteitAfgerond'] == 0)
+                    {
+                        $value['activiteitAfgerond'] =  "Nee";
+                    }
+
+                    else
+                    {
+                        $value['activiteitAfgerond'] =  "Ja";
+                    }
                     /**Veranderen van amerikaanse datum naar nederlands
                      * Van 2001-01-02 naar 02-01-2001*/
-                    $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $value['jongereInschrijfdatum']);
+                    $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s' , $value['activiteitInschrijfdatum']);
                     $newDateTimeString = $myDateTime->format('d-m-Y H:i:s');
-                    $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
-                    $newDateString = $myDate->format('d-m-Y');
+
                     echo" 
                         <tbody>
                             <tr>
-                                <td>".$value['jongereRoepnaam']."</td>
-                                <td>".$value['jongereTussenvoegsel']."</td>
-                                <td>".$value['jongereAchternaam']."</td>
-                                <td>".$newDateString."</td>
+                                <td>".$value['activiteitNaam']."</td>
                                 <td>".$newDateTimeString."</td>
+                                <td>".$value['activiteitAfgerond']."</td>
                                 <td><a href=../youthActiviti/createYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
                                 <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
-                                <td><a href=../youth/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
-                                <td><a href=../youth/updateYouth.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../youth/archiveYouth.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
-                                
                         ";
+
                 }
-            ?>
+             ?>
 
                             </tr>
                         </tbody>
         </table>
+
+    <h2>Instituut Tabel</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Instituut Naam</th>
+            <th>Start datum</th>
+            <th>Bewerken</th>
+            <th>Archiveren</th>
+        </tr>
+        </thead>
+
+        <?php
+        foreach ($sql->joinJongereInstituut($id) as $value)
+        {
+             /**Veranderen van amerikaanse datum naar nederlands
+             * Van 2001-01-02 naar 02-01-2001*/
+            $myDateTime = DateTime::createFromFormat('Y-m-d' , $value['instituutStartdatum']);
+            $newDateTimeString = $myDateTime->format('d-m-Y');
+
+            echo" 
+                        <tbody>
+                            <tr>
+                                <td>".$value['instituutNaam']."</td>
+                                <td>".$newDateTimeString."</td>
+                                <td><a href=../youthActiviti/createYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
+                                <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
+                        ";
+
+        }
+        ?>
+
+        </tr>
+        </tbody>
+    </table>
     </body>
 </html>
