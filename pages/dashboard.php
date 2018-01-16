@@ -5,9 +5,17 @@
  * Date: 16-1-2018
  * Time: 09:36
  */
-include '../class/LoginHandler.php';
+
 session_start();
-(new LoginHandler())->checkLoggedIn();
+if(isset($_SESSION['login']) && $_SESSION['login'] == true)  //Kijkt of de Session is ingesteld en true isl
+{
+
+}
+
+else
+{
+    header('Location:../index.php');
+}
 ?>
 <html>
     <head>
