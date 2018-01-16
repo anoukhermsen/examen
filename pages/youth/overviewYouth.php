@@ -13,6 +13,7 @@
     session_start();
 
     include '../../class/Crud.php';
+    include '../../class/Sql.php';
     $query = new Crud();
     include '../../class/LoginHandler.php';
 
@@ -26,6 +27,9 @@
     $orderBy = "ASC";
     $where = "jongereArchief";
     $id = 0;
+
+
+
 ?>
 
 
@@ -44,6 +48,7 @@
                     <th> </th>
                     <th>Bewerken</th>
                     <th>Archiveren</th>
+                    <th>Aantal jongere</th>
                 </tr>
             </thead>
 
@@ -73,6 +78,9 @@
                                 
                         ";
                 }
+                    echo "
+                                <td>".(new Sql())->teltAantalJongeren()."</a></td>
+                         ";
             ?>
 
                             </tr>

@@ -96,7 +96,16 @@ class Sql extends DBConfi
         return ($this->getQuery()->fetchAll());
     }
 
+    public function teltAantalJongeren()
+    {
+        $this->setQuery($this->getConn()->prepare("SELECT COUNT(*) FROM jongere WHERE jongereArchief = 0"));
 
+        $this->getQuery()->execute();
+        $count = $this->getQuery()->fetchColumn();
+
+        //echo $count;
+        return $count;
+    }
 
     //////////////////////////////////////////Getters en setters////////////////////////////////////////////////////////
     public function getTable()
