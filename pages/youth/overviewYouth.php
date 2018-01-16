@@ -40,6 +40,7 @@
                     <th>Inschrijfdatum</th>
                     <th>Inschrijven voor een Activiteit</th>
                     <th>Inschrijven voor een Instituut</th>
+                    <th>Inschrijven voor een Instituut</th>
                     <th>Bewerken</th>
                     <th>Archiveren</th>
                 </tr>

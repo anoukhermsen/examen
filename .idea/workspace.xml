@@ -41,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createYouthInstitute.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createYouthInstitute.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/youthInstitute/createYouthInstitute.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="709">
@@ -49,6 +49,20 @@
               <folding>
                 <marker date="1516104661249" expanded="true" signature="1175:1241" ph="..." />
                 <marker date="1516104661249" expanded="true" signature="1223:1241" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="overviewYouth.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/youth/overviewYouth.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="579">
+              <caret line="42" column="24" lean-forward="false" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="54" />
+              <folding>
+                <marker date="1516105363683" expanded="true" signature="1890:2929" ph="..." />
+                <marker date="1516105363683" expanded="true" signature="1923:2929" ph="..." />
+                <marker date="1516105363683" expanded="true" signature="2788:2929" ph="..." />
               </folding>
             </state>
           </provider>
@@ -113,13 +127,13 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/class/LoginHandler.php" />
         <option value="$PROJECT_DIR$/pages/youth/createYouth.php" />
-        <option value="$PROJECT_DIR$/pages/youth/overviewYouth.php" />
         <option value="$PROJECT_DIR$/pages/youthActiviti/overviewUsers.php" />
         <option value="$PROJECT_DIR$/class/Crud.php" />
         <option value="$PROJECT_DIR$/pages/youthActiviti/archiveYouthActiviti.php" />
         <option value="$PROJECT_DIR$/class/Sql.php" />
         <option value="$PROJECT_DIR$/pages/youthActiviti/createYouthActiviti.php" />
         <option value="$PROJECT_DIR$/pages/youthInstitute/createYouthInstitute.php" />
+        <option value="$PROJECT_DIR$/pages/youth/overviewYouth.php" />
       </list>
     </option>
   </component>
@@ -177,13 +191,7 @@
               <item name="examen" type="b2602c69:ProjectViewProjectNode" />
               <item name="examen" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="youthActiviti" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="examen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="examen" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="youthInstitute" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youth" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -229,12 +237,12 @@
       <updated>1516011955872</updated>
       <workItem from="1516011957696" duration="6730000" />
       <workItem from="1516020259729" duration="3383000" />
-      <workItem from="1516088288426" duration="14033000" />
+      <workItem from="1516088288426" duration="14697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24146000" />
+    <option name="totallyTimeSpent" value="24810000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -508,17 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/youth/overviewYouth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="60" column="72" lean-forward="true" selection-start-line="60" selection-start-column="72" selection-end-line="60" selection-end-column="72" />
-          <folding>
-            <marker date="1516101047413" expanded="true" signature="2728:2869" ph="..." />
-            <marker date="1516101047413" expanded="true" signature="2728:2869" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/youthActiviti/overviewUsers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-39">
@@ -595,6 +592,18 @@
           <folding>
             <marker date="1516104661249" expanded="true" signature="1175:1241" ph="..." />
             <marker date="1516104661249" expanded="true" signature="1223:1241" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/youth/overviewYouth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="42" column="24" lean-forward="false" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="54" />
+          <folding>
+            <marker date="1516105363683" expanded="true" signature="1890:2929" ph="..." />
+            <marker date="1516105363683" expanded="true" signature="1923:2929" ph="..." />
+            <marker date="1516105363683" expanded="true" signature="2788:2929" ph="..." />
           </folding>
         </state>
       </provider>
