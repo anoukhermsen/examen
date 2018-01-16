@@ -42,7 +42,7 @@ class LoginHandler extends DBConfi
             {
 
                 $_SESSION['gebruikersId'] = $hit['gebruikersId'];
-                header('location: pages/users/overviewUsers.php');
+                header('location: pages/dashboard.php');
             }
         }
 
