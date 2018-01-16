@@ -28,8 +28,9 @@
         {
                     $values = array($_POST['activiteitId'], $_GET['id']);
                     $query->insertIntoTable($table, $columns, $values);
+
                     echo 'Het toevoegen is gelukt';
-                    //header("refresh:0.5;url=overviewActiviti.php");
+                    header("refresh:0.5;url= ../youth/overviewYouth.php");
 
         }
 
@@ -38,7 +39,7 @@
                 <select name='activiteitId'>
              ";
                 $tables = 'activiteit';
-                foreach ($sql->selectFromFetch() as $value)
+                foreach ($sql->selectFromActiviteitFetch() as $value)
                 {
 
 

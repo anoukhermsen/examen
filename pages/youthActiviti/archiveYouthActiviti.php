@@ -28,12 +28,12 @@
     {
         $values = 1;
         $query->archiveRow($table, $columns, $values, $where, $id);
-        header('location: overviewYouthActiviti.php');
+        header('location:  ../youth/overviewYouth.php');
     }
 
     if (isset($_POST['Nee']))
     {
-        header('location: overviewYouthActiviti.php');
+        header('location: ../youth/overviewYouth.php');
     }
 ?>
 
