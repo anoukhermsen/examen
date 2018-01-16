@@ -6,20 +6,12 @@
  * Time: 13:45
  */
 
-    include '../../class/Crud.php';
+    include '../../class/Sql.php';
     include '../../class/LoginHandler.php';
 
     session_start();
 
-    $query = new Crud();
-
-    /*
-     * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
-     */
-    $table = "gebruikers";
-    $columns = array("gebruikersEmail", "gebruikersWachtwoord", "gebruikersVoornaam", "gebruikersTussenvoegsel", "gebruikersAchternaam");
-
-
+    $query = new Sql();
 
     /*
      * Het inserten into de data base.
