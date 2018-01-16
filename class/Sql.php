@@ -39,6 +39,27 @@ class Sql extends DBConfi
         //BIJ RETURN QUERY DE EXECUTE UITZETTEN EN IN DE UPDATE PAGINA ECHO $query->...
     }
 
+    /*
+     * In deze functie wordt er berekend of een Jongere meerder jarig is. Zodra hij de leeftijd van 18 behaald heeft zult hij/zij terug gevonden kunnen worden bij meerderjarige
+     */
+    public function leeftijdBerekenenMeerderJarig()
+    {
+        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE()-INTERVAL 100 YEAR AND CURRENT_DATE()-INTERVAL 18 YEAR";
+        $this->setQuery($this->getConn()->prepare($query));
+
+        $this->getQuery()->execute();
+    }
+
+    /*
+     * In deze functie wordt er berekend of een Jongere minder jarig is. Zodra hij de leeftijd van 18 behaald heeft zult hij/zij niet terug gevonden kunnen worden bij meerderjarige
+     */
+    public function leeftijdBerekenenMinderJarig()
+    {
+        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE()-INTERVAL 18 YEAR AND CURRENT_DATE()-INTERVAL 0 YEAR";
+        $this->setQuery($this->getConn()->prepare($query));
+
+        $this->getQuery()->execute();
+    }
 
 
 
