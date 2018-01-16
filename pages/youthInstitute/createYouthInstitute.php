@@ -1,82 +1,64 @@
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
-</head>
-<body>
 <?php
 /**
  * Created by PhpStorm.
- * User: Anouk Hermsen
- * Date: 16-1-2018
- * Time: 9:00
+ * User: melan
+ * Date: 15-1-2018
+ * Time: 13:45
  */
 
+    include '../../class/Sql.php';
     include '../../class/Crud.php';
     include '../../class/LoginHandler.php';
 
     session_start();
 
     $query = new Crud();
+    $sql = new Sql();
+
+    $table = 'jongereinstituut';
+    $columns = array('instituutId', 'jongereId', 'instituutStartdatum');
+
 
     /*
-         Variabelen voor de database
+     * Het inserten into de data base.
+     * In dit stuk code is met behulp van Preg match een beveiliging er op gezet dat alleen een bepaald soort email kan worden toe gevoegt,
+     * en met behulp van md5 worden de wachtwoorden beveiligd maar ook met behulp van htmlspecialchars wordt het insurten van de informatie beveiligd zodat hackers niet in de database kunnen komen.
      */
-    $table = "instituut";
-    $columns = array("instituutNaam", "instituutTel");
+    if(isset($_POST['submit']))
+    {
+        $values = array($_POST['instituutId'], $_GET['id'], $_POST['instituutStartdatum']);
+        $query->insertIntoTable($table, $columns, $values);
+
+        echo 'Het toevoegen is gelukt';
+        header("refresh:0.5;url= ../youth/overviewYouth.php");
+    }
+
+    //Het formulier waarbij je de gebruikers kunnen worden toe gevoegd
+    echo "<form method='post'>
+                    <select name='instituutId'>
+                 ";//INSERT INTO jongereinstituut(instituutId, jongereId) VALUES (2, 4)
+                    $tables = 'instituut';
+    foreach ($sql->selectFromInstituutFetch() as $value)
+    {
 
 
-
-
-
-    /*
-     INSERT INTO DATABASE.
-    */
-        if(isset($_POST['aanmaken']))
-        {
-            if(!empty($_POST['instituutNaam']) && !empty($_POST['instituutTel']))
-            {
-                    $values = array(htmlspecialchars($_POST['instituutNaam']), htmlspecialchars($_POST['instituutTel']));
-                    $query->insertIntoTable($table, $columns, $values);
-                    echo 'Het toevoegen is gelukt';
-                    header("refresh:0.5;url=overviewInstitute.php");
-
-
-            }
-
-            else
-            {
-                echo"Niet alles is ingevuld, probeer het opnieuw";
-            }
-
-        }
-
-        if(isset($_POST['annuleren']))
-        {
-            echo 'Het toevoegen is geannuleerd';
-            header( "refresh:0.5;url=overviewInstitute.php" );
-        }
-
-
-//Formulier jongere toevoegen
-
-        echo '
-
-                <form method="post">
-                    Naam instituut:
-                        <input type="text" name="instituutNaam">
+        //De dropdown waarmee je de Categorieën gemakkelijk kunt selecteren
+        echo "
+    
+                                <option value='".$value['instituutId']."'>".$value['instituutNaam']."</option>
+                                
+    
+                           <br><br> ";
+    }
+        echo "
+                            
+                        <input type='date' name='instituutStartdatum'>
                             <br>
-                    Telefoonnummer instituut:
-                        <input type="tel" name="instituutTel">
-                           <br>
-                        <input type="submit" name="aanmaken" value="aanmaken">
-                        <input type="submit" name="annuleren" value="annuleren">
+                        <input type='submit' name='submit' value='submit'>
                 </form>
-        
-        
-        ';
+           ";
+
 ?>
 
 
 
-</body>
-</html>

@@ -61,13 +61,22 @@ class Sql extends DBConfi
         $this->getQuery()->execute();
     }
 
-    public function selectFromFetch()
+    public function selectFromActiviteitFetch()
     {
         $this->setQuery($this->getConn()->prepare('SELECT * FROM `activiteit`'));
 
         $this->getQuery()->execute();
         return ($this->getQuery()->fetchAll());
     }
+
+    public function selectFromInstituutFetch()
+    {
+        $this->setQuery($this->getConn()->prepare('SELECT * FROM `instituut`'));
+
+        $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
+    }
+
     public function joinJongereActiviteit()
     {
         $this->setQuery($this->getConn()->prepare('SELECT * FROM jongereactiviteit JOIN activiteit ON jongereactiviteit.activiteitId = activiteit.activiteitId'));
