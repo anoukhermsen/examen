@@ -50,7 +50,7 @@
                                 <td>".$value['activiteitNaam']."</td>
                                 <td>".$newDateString."</td>
                                 <td><a href=../activiti/updateActiviti.php?id=". $value['activiteitId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../activiti/updateActiviti.php?id=". $value['activiteitId'] ."><img src='../../img/archiveer.png'></a></td>
+                                <td><a href=../activiti/archiveActiviti.php?id=". $value['activiteitId'] ."><img src='../../img/archiveer.png'></a></td>
                         ";
                 }
             ?>
