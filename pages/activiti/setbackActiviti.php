@@ -1,8 +1,3 @@
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
-</head>
-<body>
 <?php
 /**
  * Created by PhpStorm.
@@ -18,32 +13,33 @@
     include '../../class/LoginHandler.php';
 
 
-    (new LoginHandler())->checkRights();
+    //(new LoginHandler())->checkRights();
 
     /*
      * De variable's die er worden gebruikt om de gekozen gebruiker te kunnen verwijderen door middel van het gebruiken van een $_GET id
      */
-    $columns = "gebruikersArchief";
-    $table = "gebruikers";
-    $where = 'gebruikersId';
-    $columnSort = "gebruikersEmail";
+    $columns = "activiteitArchief";
+    $table = "activiteit";
+    $where = 'activiteitId';
+    $columnSort = "activiteitId";
     $id = $_GET['id'];
 
     if (isset($_POST['Ja']))
     {
-        $values = 1;
+        $values = 0;
         $query->archiveRow($table, $columns, $values, $where, $id);
-        header('location: overviewUsers.php');
+        header('location: overviewActiviti.php');
     }
 
     if (isset($_POST['Nee']))
     {
-        header('location: overviewUsers.php');
+        header('location: overviewActiviti.php');
     }
 ?>
 
-
-        Weet u zeker dat u deze gebruiker wil archiveren?
+<html>
+    <body>
+        Weet u zeker dat u deze activiteit wil terugzetten?
         <br>
 
             <?php

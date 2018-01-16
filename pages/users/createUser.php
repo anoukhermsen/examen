@@ -8,6 +8,7 @@
 
     include '../../class/Crud.php';
     include '../../class/LoginHandler.php';
+    (new LoginHandler())->checkRights();
 
     session_start();
 

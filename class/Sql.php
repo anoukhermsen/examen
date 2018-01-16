@@ -68,6 +68,8 @@ class Sql extends DBConfi
         $this->getQuery()->execute();
         return ($this->getQuery()->fetchAll());
     }
+
+
     public function joinJongereActiviteit()
     {
         $this->setQuery($this->getConn()->prepare('SELECT * FROM jongereactiviteit JOIN activiteit ON jongereactiviteit.activiteitId = activiteit.activiteitId'));

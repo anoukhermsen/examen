@@ -15,6 +15,7 @@
     include '../../class/LoginHandler.php';
 
     session_start();
+(new LoginHandler())->checkRights();
 
     $query = new Crud();
 

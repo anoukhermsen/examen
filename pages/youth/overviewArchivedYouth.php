@@ -16,7 +16,7 @@ include '../../class/Crud.php';
 $query = new Crud();
 include '../../class/LoginHandler.php';
 
-//(new LoginHandler())->checkRights();
+(new LoginHandler())->checkRights();
 
 /*
  * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
@@ -62,10 +62,8 @@ $id = 1;
                                 <td>".$value['jongereAchternaam']."</td>
                                 <td>".$newDateString."</td>
                                 <td>".$newDateTimeString."</td>
-                                <td><a href=../youthActiviti/createYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
-                                <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
-                                <td><a href=../youth/updateYouth.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../youth/archiveYouth.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
+                                <td><a href=../youth/setbackYouth.php?id=". $value['jongereId'] ."><img src='../../img/back.png'></a></td>
+                                <td><a href=../youth/deleteYouth.php?id=". $value['jongereId'] ."><img src='../../img/delete.png'></a></td>
                                 
                         ";
     }

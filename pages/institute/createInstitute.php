@@ -16,6 +16,7 @@
 
     session_start();
 
+    (new LoginHandler())->checkRights();
     $query = new Crud();
 
     /*

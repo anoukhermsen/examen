@@ -17,7 +17,7 @@
     $query = new Crud();
     include '../../class/LoginHandler.php';
 
-    //(new LoginHandler())->checkRights();
+    (new LoginHandler())->checkRights();
 
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen

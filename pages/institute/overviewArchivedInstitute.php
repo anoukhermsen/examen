@@ -25,7 +25,7 @@
     $columnSort = "instituutNaam";
     $orderBy = "ASC";
     $where = "gebruikersArchief";
-    $id = 0;
+    $id = 1;
 ?>
 
 
@@ -41,15 +41,15 @@
             </thead>
 
             <?php
-                foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
+                foreach ($query->selectFromTable($table, null, $where, $id, null, null,  $columnSort, $orderBy) as $value)
                 {
                     echo" 
                         <tbody>
                             <tr>
                                 <td>".$value['instituutNaam']."</td>
                                 <td>".$value['instituutTel']."</td>
-                                <td><a href=../institute/updateInstitute.php?id=". $value['instituutId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../institute/archiveInstitute.php?id=". $value['instituutId'] ."><img src='../../img/archiveer.png'></a></td>
+                                <td><a href=../institute/setbackInstitute.php?id=". $value['instituutId'] ."><img src='../../img/back.png'></a></td>
+                                <td><a href=../institute/deleteInstitute.php?id=". $value['instituutId'] ."><img src='../../img/delete.png'></a></td>
                         ";
                 }
             ?>

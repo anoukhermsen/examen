@@ -22,7 +22,7 @@ session_start();
 
 
 //Variables die worden gebruikt in het inserten in een database
-$columnId = "instituutId";
+$columnId = "activitiId";
 $table = "instituut";
 $id = $_GET['id'];
 
