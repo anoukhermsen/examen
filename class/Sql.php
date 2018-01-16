@@ -22,7 +22,6 @@ class Sql extends DBConfi
     // Een Dynamic functie om een geselecteerde rij te kunnen archiveren
     public function archiveRow($table, $columns,  $values, $columnId, $id)
     {
-        echo "1";
         /*
          * UPDATE $table SET $column WHERE $columnId = $value;
          * Query opbouwen
@@ -38,8 +37,6 @@ class Sql extends DBConfi
         $this->getQuery()->execute();
 
         //BIJ RETURN QUERY DE EXECUTE UITZETTEN EN IN DE UPDATE PAGINA ECHO $query->...
-
-        echo '2';
     }
 
     /*
@@ -58,10 +55,25 @@ class Sql extends DBConfi
      */
     public function leeftijdBerekenenMinderJarig()
     {
-        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE()-INTERVAL 18 YEAR AND CURRENT_DATE()-INTERVAL 0 YEAR";
+        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE()- INTERVAL 18 YEAR AND CURRENT_DATE() - INTERVAL 0 YEAR";
         $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
+    }
+
+    public function selectFromFetch()
+    {
+        $this->setQuery($this->getConn()->prepare('SELECT * FROM `activiteit`'));
+
+        $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
+    }
+    public function joinJongereActiviteit()
+    {
+        $this->setQuery($this->getConn()->prepare('SELECT * FROM jongereactiviteit JOIN activiteit ON jongereactiviteit.activiteitId = activiteit.activiteitId'));
+
+        $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
     }
 
 

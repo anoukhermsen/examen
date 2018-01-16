@@ -7,13 +7,18 @@
  */
 
     include '../../class/Sql.php';
+    include '../../class/Crud.php';
     include '../../class/LoginHandler.php';
 
     session_start();
 
-    $query = new Sql();
+    $query = new Crud();
+    $sql = new Sql();
 
-    $table = 'activiteit';
+    $table = 'jongereActiviteit';
+    $columns = array('activiteitId', 'jongereId');
+
+
     /*
      * Het inserten into de data base.
      * In dit stuk code is met behulp van Preg match een beveiliging er op gezet dat alleen een bepaald soort email kan worden toe gevoegt,
@@ -21,43 +26,33 @@
      */
         if(isset($_POST['submit']))
         {
-            if(!empty($_POST['gebruikersEmail']) && !empty($_POST['gebruikersWachtwoord']) && !empty($_POST['gebruikersVoornaam']) && !empty($_POST['gebruikersAchternaam']))
-            {
-                if (preg_match("/almere.nl/i", $_POST['gebruikersEmail']))
-                {
-                    $values = array(htmlspecialchars($_POST['gebruikersEmail']), htmlspecialchars(md5($_POST['gebruikersWachtwoord'])), htmlspecialchars($_POST['gebruikersVoornaam']), htmlspecialchars($_POST['gebruikersTussenvoegsel']), htmlspecialchars($_POST['gebruikersAchternaam']));
+                    $values = array($_POST['activiteitId'], $_GET['id']);
                     $query->insertIntoTable($table, $columns, $values);
                     echo 'Het toevoegen is gelukt';
-                    header("refresh:0.5;url=overviewActiviti.php");
-                }
-
-                else
-                {
-                    echo "Gebruik uw bedrijfs email";
-                }
-            }
-
-            else
-            {
-                echo"Niet alles is ingevuld, probeer het opnieuw";
-            }
+                    //header("refresh:0.5;url=overviewActiviti.php");
 
         }
 
         //Het formulier waarbij je de gebruikers kunnen worden toe gevoegd
-        echo '
-                <select name="catId">';
+        echo "<form method='post'>
+                <select name='activiteitId'>
+             ";
+                $tables = 'activiteit';
+                foreach ($sql->selectFromFetch() as $value)
+                {
 
-//                foreach ($query->selectFromTable($table, ) as $value)
-//                {
-//                    //De dropdown waarmee je de Categorieën gemakkelijk kunt selecteren
-//
-//                    echo "
-//
-//                            <option value='".$value['catId']."'>".$value['catName']."</option>
-//
-//                        ";
-//                }
+
+                    //De dropdown waarmee je de Categorieën gemakkelijk kunt selecteren
+                    echo "
+
+                            <option value='".$value['activiteitId']."'>".$value['activiteitNaam']."</option>
+                            
+
+                        ";
+                }
+                echo "
+                    <input type='submit' name='submit' value='submit'>
+            </form>"
 
 ?>
 
