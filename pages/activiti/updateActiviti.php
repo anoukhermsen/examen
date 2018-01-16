@@ -63,25 +63,15 @@
 
             <form method="post">
                     <br>
-                    Gebruikers Email:
-                        <input type='email' name='gebruikersEmail' value='<?php $value['gebruikersEmail'] ?>'>
-                            </br>
-                    Wachtwoord:
-                        <input type='password' name='gebruikersWachtwoord' value='<?php echo $value['gebruikersWachtwoord'] ?>'>
-                            </br>
-                    Gebruikers Voornaam:
-                        <input type='text' name='gebruikersVoornaam' value='<?php echo $value['gebruikersVoornaam'] ?>'>
-                            </br>
-                    Gebruikers Tussenvoegsel:
-                        <input type='text' name='gebruikersTussenvoegsel' value='<?php echo $value['gebruikersTussenvoegsel'] ?>'>
-                            </br>
-                    Profiel Achternaam:
-                        <input type='text' name='gebruikersAchternaam' value='<?php echo $value['gebruikersAchternaam'] ?>'>
-                            </br>
+                    Activiteits Naam:
+                        <input type='text' name='activiteitNaam' value='<?php echo $value['activiteitNaam'] ?>'>
 
-                    <br>
-                    <input type="submit" name="aanmaken" value="Updaten" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
-                    <input type="submit" name="annuleren" value="Annuleren" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                            </br>
+                    Start Datum:
+                        <input type='date' name='activiteitStartdatum' value='<?php echo $value['activiteitStartdatum'] ?>'>
+                            </br>
+                        <input type="submit" name="aanmaken" value="Updaten" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                        <input type="submit" name="annuleren" value="Annuleren" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
             </form>
         <?php
                 }
