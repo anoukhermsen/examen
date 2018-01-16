@@ -62,7 +62,7 @@
                                 <td>".$newDateString."</td>
                                 <td>".$newDateTimeString."</td>
                                 <td><a href=../youthActiviti/createYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
-                                <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
+                                <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
                                 <td><a href=../youth/updateYouth.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
                                 <td><a href=../youth/deleteYouth.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
                                 
