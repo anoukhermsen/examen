@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/pages/youthActiviti/createYouthActiviti.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
-              <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+              <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
               <folding>
                 <marker date="1516095927170" expanded="true" signature="1808:2627" ph="..." />
               </folding>
@@ -40,11 +40,11 @@
       <file leaf-file-name="overviewYouth.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/youth/overviewYouth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="40" column="54" lean-forward="false" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
+            <state relative-caret-position="816">
+              <caret line="69" column="17" lean-forward="true" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
               <folding>
-                <marker date="1516096250898" expanded="true" signature="1819:2857" ph="..." />
-                <marker date="1516096250898" expanded="true" signature="1852:2857" ph="..." />
+                <marker date="1516096368803" expanded="true" signature="1819:2859" ph="..." />
+                <marker date="1516096368803" expanded="true" signature="1852:2859" ph="..." />
               </folding>
             </state>
           </provider>
@@ -146,6 +146,12 @@
               <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="youthActiviti" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="examen" type="b2602c69:ProjectViewProjectNode" />
+              <item name="examen" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youthInstitute" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -190,12 +196,12 @@
       <updated>1516011955872</updated>
       <workItem from="1516011957696" duration="6730000" />
       <workItem from="1516020259729" duration="3383000" />
-      <workItem from="1516088288426" duration="6851000" />
+      <workItem from="1516088288426" duration="6965000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16964000" />
+    <option name="totallyTimeSpent" value="17078000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -515,7 +521,7 @@
     <entry file="file://$PROJECT_DIR$/pages/youthActiviti/createYouthActiviti.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
-          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+          <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
           <folding>
             <marker date="1516095927170" expanded="true" signature="1808:2627" ph="..." />
           </folding>
@@ -524,11 +530,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/youth/overviewYouth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="54" lean-forward="false" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
+        <state relative-caret-position="816">
+          <caret line="69" column="17" lean-forward="true" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
           <folding>
-            <marker date="1516096250898" expanded="true" signature="1819:2857" ph="..." />
-            <marker date="1516096250898" expanded="true" signature="1852:2857" ph="..." />
+            <marker date="1516096368803" expanded="true" signature="1819:2859" ph="..." />
+            <marker date="1516096368803" expanded="true" signature="1852:2859" ph="..." />
           </folding>
         </state>
       </provider>
