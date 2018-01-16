@@ -21,9 +21,11 @@
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
      */
-    $table = "instituut";
-    $columnSort = "instituutNaam";
+    $table = "jongereinstituut";
+    $columnSort = "instituutId";
     $orderBy = "ASC";
+    $where = "jongereInstituutArchief";
+    $id = 1;
 ?>
 
 
@@ -33,21 +35,21 @@
                 <tr>
                     <th>Naam instituut</th>
                     <th>Telefoonnummer instituut</th>
-                    <th>Bewerken</th>
-                    <th>Archiveren</th>
+                    <th>Terugzetten</th>
+                    <th>Verwijderen</th>
                 </tr>
             </thead>
 
             <?php
-                foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
+                foreach ($query->selectFromTable($table, null, $where, $id, null, null,  $columnSort, $orderBy) as $value)
                 {
                     echo" 
                         <tbody>
                             <tr>
                                 <td>".$value['instituutNaam']."</td>
                                 <td>".$value['instituutTel']."</td>
-                                <td><a href=../institute/updateInstitute.php?id=". $value['instituutId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../institute/deleteInstitute.php?id=". $value['instituutId'] ."><img src='../../img/archiveer.png'></a></td>
+                                <td><a href=../youthInstitute/setbackYouthInstitute.php?id=". $value['instituutId'] ."><img src='../../img/back.png'></a></td>
+                                <td><a href=../youthInstitute/deleteYouthInstitute.php?id=". $value['instituutId'] ."><img src='../../img/delete.png'></a></td>
                         ";
                 }
             ?>

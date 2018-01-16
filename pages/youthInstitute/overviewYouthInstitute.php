@@ -25,7 +25,7 @@
     $columnSort = "instituutNaam";
     $orderBy = "ASC";
     $where = "gebruikersArchief";
-    $id = 1;
+    $id = 0;
 ?>
 
 
@@ -35,8 +35,8 @@
                 <tr>
                     <th>Naam instituut</th>
                     <th>Telefoonnummer instituut</th>
-                    <th>Terugzetten</th>
-                    <th>Verwijderen</th>
+                    <th>Bewerken</th>
+                    <th>Archiveren</th>
                 </tr>
             </thead>
 
@@ -48,8 +48,8 @@
                             <tr>
                                 <td>".$value['instituutNaam']."</td>
                                 <td>".$value['instituutTel']."</td>
-                                <td><a href=../institute/setbackInstitute.php?id=". $value['instituutId'] ."><img src='../../img/back.png'></a></td>
-                                <td><a href=../institute/deleteInstitute.php?id=". $value['instituutId'] ."><img src='../../img/delete.png'></a></td>
+                                <td><a href=../institute/updateInstitute.php?id=". $value['instituutId'] ."><img src='../../img/edit.png'></a></td>
+                                <td><a href=../institute/deleteInstitute.php?id=". $value['instituutId'] ."><img src='../../img/archiveer.png'></a></td>
                         ";
                 }
             ?>

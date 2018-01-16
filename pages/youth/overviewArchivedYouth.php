@@ -40,8 +40,8 @@ $id = 1;
         <th>Inschrijfdatum</th>
         <th>Inschrijven voor een Activiteit</th>
         <th>Inschrijven voor een Instituut</th>
-        <th>Bewerken</th>
-        <th>Archiveren</th>
+        <th>Terugzetten</th>
+        <th>Verwijderen</th>
     </tr>
     </thead>
 

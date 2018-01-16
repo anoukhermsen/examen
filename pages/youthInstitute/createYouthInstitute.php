@@ -18,6 +18,8 @@
 
     $table = 'jongereinstituut';
     $columns = array('instituutId', 'jongereId', 'instituutStartdatum');
+    $where = "gebruikersArchief";
+    $id = 0;
 
 
     /*

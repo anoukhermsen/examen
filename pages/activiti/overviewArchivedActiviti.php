@@ -30,8 +30,8 @@
                 <tr>
                     <th>Activiteits Naam</th>
                     <th>Activiteits Startdatum</th>
-                    <th>Bewerken</th>
-                    <th>Archiveren</th>
+                    <th>Terugzetten</th>
+                    <th>Verwijderen</th>
                 </tr>
             </thead>
 
