@@ -53,10 +53,7 @@ class Menu
                 background-color:#5FD367;
             }
             .drop_menu li:hover ul li a:hover { background:#005555; }
-            .right{
-                right: 0px;
 
-            }
         </style>
         <body>
         <div class="drop">
