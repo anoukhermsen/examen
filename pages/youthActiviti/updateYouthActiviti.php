@@ -18,18 +18,17 @@
     include '../../class/sql.php';
 
     $query = new Crud();
-    $sql = new Sql();
 
 (new LoginHandler())->checkLoggedIn();
 
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
      */
-    $columns = "activiteitAfgerond";
+    $columns = array("activiteitAfgerond");
     $table = "jongereactiviteit";
-    $where = 'activiteitId';
-    $columnSort = "activiteitId";
+    $where = 'jongereId';
     $id = $_GET['id'];
+
 
 
     if(isset($_POST['updaten']))
@@ -42,10 +41,12 @@
             elseif(isset($_POST['Afgerond']))
             {
                 //Werkt niet
-                $values = $_POST['Afgerond'];
-                echo $query->updateRow($table, $columns, $values, $where, $id);
-                //header( "refresh:0.5;url=../youth/overviewYouthInformation.php?id='$id'");
-                //var_dump($_POST['applicationPayed']);
+                $values = array($_POST['Afgerond']);
+                echo $query->updateRow($table, $columns, $where, $values, $id);
+                header( "refresh:0.5;url=../youth/overviewYouthInformation.php?id='$id'");
+
+
+                echo "gelukt";
             }
 
     }
@@ -73,7 +74,7 @@
                     <br>
                     Afgerond:<br>
                     Ja <input type='radio' name='Afgerond' value='1'>
-                    Nee <input type='radio' name='afgerond' value='0'>
+                    Nee <input type='radio' name='Afgerond' value='0'>
                     <br>
                     <input type='submit' name='updaten' value='updaten'>
                     <input type='submit' name='annuleren' value='annuleren'> 
