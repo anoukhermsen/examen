@@ -14,11 +14,11 @@ $pdf->SetFont('Arial','',10);
 
 $table1=new easyTable($pdf, 2);
 $table1->easyCell('Rapportage', 'font-size:30; font-style:B; font-color:#3CA222;');
-$table1->easyCell('', 'img:../images/demo/backgrounds/klavertjevier.jpg, w40; align:R;');
+$table1->easyCell('', 'img:../img/klavertjevier.jpg, w40; align:R;');
 $table1->printRow();
 
 $table1->rowStyle('font-size:15; font-style:B;');
-$table1->easyCell('Gebruikers gegevens');
+//$table1->easyCell('Gebruikers gegevens');
 $table1->easyCell('Jongeren Kansrijker', 'align:R;');
 $table1->printRow();
 $table1->rowStyle('font-size:12;');
@@ -26,7 +26,7 @@ $table1->rowStyle('font-size:12;');
 $table = "jongere";
 $where = 'jongereId';
 $columnSort = "jongereId";
-$id = $_GET['id'];
+$id = $_SESSION['gebruikersId'];
 $result = new Crud();
 foreach ($result->selectFromTable($table, null, $where, $id, null, null, null, $columnSort) as $value)
 {
@@ -48,7 +48,7 @@ foreach ($result->selectFromTable($tables, null, null, null, null, null, null, $
 
 
 $table1->rowStyle('font-size:12;');
-$table1->easyCell("<b>Name:</b> $naam $tussenvoegsel $achternaam\n<b>Geboortedatum:</b> $newDateString\n<b> Inschrijfdatum:</b> $newDateStringInschrijf\n");
+$table1->easyCell("\n\n\n");
 $table1->easyCell("M. Norton\n Muziekwijk 22/15 \n3564 ND Almere\n 0352 741 209", 'align:R;');
 $table1->printRow();
 $table1->endTable(5);
