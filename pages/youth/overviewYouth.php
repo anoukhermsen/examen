@@ -13,19 +13,10 @@
     session_start();
 
     include '../../class/Crud.php';
-<<<<<<< HEAD
     $query = new Crud();
     include '../../class/Sql.php';
     $sql = new Sql();
     include '../../class/LoginHandler.php';
-=======
-    include '../../class/Sql.php';
-    include '../../class/LoginHandler.php';
-    $query = new Crud();
-
-    $sql = new Sql();
-
->>>>>>> origin/master
     (new LoginHandler())->checkLoggedIn();
     include '../../class/Menu.php';
     (new Menu())->generateMenu();
