@@ -5,16 +5,19 @@
  * Date: 15-1-2018
  * Time: 13:45
  */
-
-    include '../../class/Sql.php';
-    include '../../class/Crud.php';
-    include '../../class/LoginHandler.php';
-
     session_start();
-(new LoginHandler())->checkLoggedIn();
-
-    $query = new Crud();
+    include '../../class/Sql.php';
     $sql = new Sql();
+    include '../../class/Crud.php';
+    $query = new Crud();
+    include '../../class/LoginHandler.php';
+    (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+    (new Menu())->generateMenu();
+
+
+
+
 
     $table = 'jongereActiviteit';
     $columns = array('activiteitId', 'jongereId');

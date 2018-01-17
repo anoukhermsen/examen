@@ -10,15 +10,14 @@
  * Date: 16-1-2018
  * Time: 10:13
  */
-
+session_start();
 //Aanroepen van de gebruikte classes
 include '../../class/Crud.php';
 $query = new Crud();
 include '../../class/LoginHandler.php';
-session_start();
-
 (new LoginHandler())->checkLoggedIn();
-
+include '../../class/Menu.php';
+(new Menu())->generateMenu();
 
 
 //Variables die worden gebruikt in het inserten in een database

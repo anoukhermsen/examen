@@ -13,11 +13,12 @@
     session_start();
 
     include '../../class/Crud.php';
-    include '../../class/LoginHandler.php';
-
     $query = new Crud();
+    include '../../class/LoginHandler.php';
+    (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+    (new Menu())->generateMenu();
 
-(new LoginHandler())->checkLoggedIn();
 
     /*
      * Variabelen voor de database

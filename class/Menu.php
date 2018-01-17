@@ -11,61 +11,90 @@ class Menu
     public function generateMenu()
     {
         ?>
-        <!DOCTYPE html>
-        <html lang="en">
+        <html>
         <head>
-            <title>Bootstrap Example</title>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
         </head>
+        <style>
+/*Made by http://www.cssterm.com/css-menus/horizontal-css-menu/simple-drop-down-menu*/
+
+            .drop_menu {
+                background:dimgrey;
+                list-style-type:none;
+                height:50px;
+            }
+            .drop_menu li { float:left; }
+            .drop_menu li a {
+                padding:9px 20px;
+                display:block;
+                color:#fff;
+                text-decoration:none;
+            }
+
+            /* Submenu */
+            .drop_menu ul {
+                position:absolute;
+                left:-9999px;
+                top:-9999px;
+                list-style-type:none;
+            }
+            .drop_menu li:hover { position:relative; background:#5FD367; }
+            .drop_menu li:hover ul {
+                left:0px;
+                top:49px;
+                background:#5FD367;
+                padding:0px;
+            }
+
+            .drop_menu li:hover ul li a {
+                padding:5px;
+                display:block;
+                width:168px;
+                text-indent:15px;
+                background-color:#5FD367;
+            }
+            .drop_menu li:hover ul li a:hover { background:#005555; }
+            .right{
+                right: 0px;
+
+            }
+        </style>
         <body>
+        <div class="drop">
+            <ul class="drop_menu">
+                <li><a>Activiteiten</a>
+                    <ul>
+                        <li><a href='../activiti/createActiviti.php'>Toevoegen</a></li>
+                        <li><a href='../activiti/overviewActiviti.php'>Overzicht</a></li>
+                    </ul>
+                </li>
+                <li><a>Medewerkers</a>
+                    <ul>
+                        <li><a href='../users/createUser.php'>Toevoegen</a></li>
+                        <li><a href='../users/overviewUsers.php'>Overzicht</a></li>
+                    </ul>
+                </li>
+                <li><a href='#'>Instituten</a>
+                    <ul>
+                        <li><a href='../institute/createInstitute.php'>Toevoegen</a></li>
+                        <li><a href='../institute/overviewInstitute.php'>Overzicht</a></li>
+                    </ul>
+                </li>
+                <li><a href='#'>Jongeren</a>
+                    <ul>
+                        <li><a href='../youth/createYouth.php'>Toevoegen</a></li>
+                        <li><a href='../youth/overviewYouth.php'>Overzicht</a></li>
+                    </ul>
+                </li>
+                <li><a href='../../logout.php' class="right">Uitloggen</a>
+            </ul>
 
-        <nav class="navbar navbar-inverse" style="color: #FFFFFF;">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand">Jongeren kansrijk</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Activiteiten <span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="../../activiti/createActiviti.php">Activiteit toevoegen</a></li>
-                            <li><a href="../../activiti/overviewActiviti.php">Activiteiten overzicht</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Medewerkers <span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Medewerker toevoegen</a></li>
-                            <li><a href="#">Medewerkers overzicht</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Instituten <span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Instituten toevoegen</a></li>
-                            <li><a href="#">Instituten overzicht</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Jongeren <span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Jongeren toevoegen</a></li>
-                            <li><a href="#">Jongeren overzicht</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Loguit</a></li>
-                </ul>
-            </div>
-        </nav>
-
-
+        </div>
         </body>
         </html>
+
+
+
+
         <?php
     }
 }

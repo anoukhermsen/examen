@@ -10,14 +10,16 @@
  * Date: 16-1-2018
  * Time: 9:00
  */
-
+session_start();
     include '../../class/Crud.php';
-    include '../../class/LoginHandler.php';
-
-    session_start();
-
-(new LoginHandler())->checkLoggedIn();
     $query = new Crud();
+    include '../../class/LoginHandler.php';
+    (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+    (new Menu())->generateMenu();
+
+
+
 
     /*
          Variabelen voor de database

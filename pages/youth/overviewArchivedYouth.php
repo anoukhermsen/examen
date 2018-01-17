@@ -21,6 +21,9 @@ include '../../class/LoginHandler.php';
 include '../../class/Sql.php';
 $sql = new Sql();
 
+include '../../class/Menu.php';
+(new Menu())->generateMenu();
+
 /*
  * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
  */

@@ -13,18 +13,18 @@
     session_start();
 
     include '../../class/Sql.php';
+    $query = new Sql();
     include '../../class/LoginHandler.php';
-
-
-(new LoginHandler())->checkLoggedIn();
-
+    (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+    (new Menu())->generateMenu();
 
     $columns = "instituutArchief";
     $table = "instituut";
     $where = 'instituutId';
     $id = $_GET['id'];
 
-    $query = new Sql();
+
 
 
     /*Archiveren of niet*/

@@ -13,18 +13,18 @@
     session_start();
 
     include '../../class/Crud.php';
+    $query = new Crud();
     include '../../class/LoginHandler.php';
-
-
-(new LoginHandler())->checkLoggedIn();
-
+    (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+    (new Menu())->generateMenu();
 
     $columns = array("jongereArchief", "jongereUitschrijfdatum");
     $table = "jongere";
     $where = 'jongereId';
     $id = $_GET['id'];
 
-    $query = new Crud();
+
 
 
     /*Archiveren of niet*/

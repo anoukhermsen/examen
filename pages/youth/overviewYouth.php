@@ -13,12 +13,13 @@
     session_start();
 
     include '../../class/Crud.php';
-    include '../../class/Sql.php';
     $query = new Crud();
+    include '../../class/Sql.php';
     $sql = new Sql();
     include '../../class/LoginHandler.php';
-
     (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+    (new Menu())->generateMenu();
 
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen

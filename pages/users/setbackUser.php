@@ -18,9 +18,9 @@
     include '../../class/Sql.php';
     $query = new Sql();
     include '../../class/LoginHandler.php';
-
-
-(new LoginHandler())->checkLoggedIn();
+    (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+    (new Menu())->generateMenu();
 
     /*
      * De variable's die er worden gebruikt om de gekozen gebruiker te kunnen verwijderen door middel van het gebruiken van een $_GET id

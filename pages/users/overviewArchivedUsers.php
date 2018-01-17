@@ -16,8 +16,9 @@
     include '../../class/Crud.php';
     $query = new Crud();
     include '../../class/LoginHandler.php';
-
-(new LoginHandler())->checkLoggedIn();
+    (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+    (new Menu())->generateMenu();
 
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen

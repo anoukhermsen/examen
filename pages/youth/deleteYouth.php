@@ -3,40 +3,41 @@
     <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
 </head>
 <body>
-<?php
-/**
- * Created by PhpStorm.
- * User: Anouk Hermsen
- * Date: 16-1-2018
- * Time: 10:13
- */
+    <?php
+    /**
+     * Created by PhpStorm.
+     * User: Anouk Hermsen
+     * Date: 16-1-2018
+     * Time: 10:13
+     */
 
-//Aanroepen van de gebruikte classes
-include '../../class/Crud.php';
-$query = new Crud();
-include '../../class/LoginHandler.php';
-session_start();
+    //Aanroepen van de gebruikte classes
+    session_start();
+    include '../../class/Crud.php';
+    $query = new Crud();
+    include '../../class/LoginHandler.php';
+    (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+    (new Menu())->generateMenu();
 
-(new LoginHandler())->checkLoggedIn();
 
+    //Variables die worden gebruikt in het inserten in een database
+    $columnId = "jongereId";
+    $table = "jongere";
+    $id = $_GET['id'];
 
-//Variables die worden gebruikt in het inserten in een database
-$columnId = "jongereId";
-$table = "jongere";
-$id = $_GET['id'];
+    if (isset($_POST['Ja']))
+    {
+        echo $query->deleteRow($table, $columnId, $id);
 
-if (isset($_POST['Ja']))
-{
-    echo $query->deleteRow($table, $columnId, $id);
+        header('location: overviewArchivedYouth.php');
+    }
 
-    header('location: overviewArchivedYouth.php');
-}
-
-if (isset($_POST['Nee']))
-{
-    header('location: overviewArchivedYouth.php');
-}
-?>
+    if (isset($_POST['Nee']))
+    {
+        header('location: overviewArchivedYouth.php');
+    }
+    ?>
 
 
 
