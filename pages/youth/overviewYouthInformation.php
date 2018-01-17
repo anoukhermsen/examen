@@ -76,6 +76,7 @@
                                 <td>".$value['activiteitAfgerond']."</td>
                                 <td><a href=../youthActiviti/updateYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
                                 <td><a href=../youthActiviti/archiveYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
+                                <td><a href=../pdfTable.php?id=". $value['jongereId'] ."><img src='../../img/pdf.png'></a></td>
                         ";
 
                 }

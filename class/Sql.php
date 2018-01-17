@@ -57,12 +57,15 @@ class Sql extends DBConfi
      */
     public function leeftijdBerekenenMinderJarig()
     {
-        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE()- INTERVAL 18 YEAR AND CURRENT_DATE() - INTERVAL 0 YEAR";
+        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE()- INTERVAL 18 YEAR AND CURRENT_DATE() - INTERVAL 0 YEAR AND `jongereArchief` = 0";
         $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
     }
 
+    /*
+     *
+     */
     public function selectFromActiviteitFetch()
     {
         $this->setQuery($this->getConn()->prepare('SELECT * FROM `activiteit`'));
@@ -71,6 +74,9 @@ class Sql extends DBConfi
         return ($this->getQuery()->fetchAll());
     }
 
+    /*
+     *
+     */
     public function selectFromInstituutFetch()
     {
         $this->setQuery($this->getConn()->prepare('SELECT * FROM `instituut`'));
@@ -79,7 +85,9 @@ class Sql extends DBConfi
         return ($this->getQuery()->fetchAll());
     }
 
-
+    /*
+     *
+     */
     public function joinJongereActiviteit($jongereId)
     {
         $this->setQuery($this->getConn()->prepare("SELECT * FROM jongereactiviteit JOIN activiteit ON jongereactiviteit.activiteitId = activiteit.activiteitId WHERE jongereId = ". $jongereId));
@@ -88,6 +96,9 @@ class Sql extends DBConfi
         return ($this->getQuery()->fetchAll());
     }
 
+    /*
+     *
+     */
     public function joinJongereInstituut($jongereId)
     {
         $this->setQuery($this->getConn()->prepare("SELECT * FROM `jongereinstituut` JOIN instituut ON jongereinstituut.instituutId = instituut.instituutId WHERE jongereId =". $jongereId));
@@ -96,6 +107,9 @@ class Sql extends DBConfi
         return ($this->getQuery()->fetchAll());
     }
 
+    /*
+     *
+     */
     public function teltAantalJongeren()
     {
         $this->setQuery($this->getConn()->prepare("SELECT COUNT(*) FROM jongere WHERE jongereArchief = 0"));

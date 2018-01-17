@@ -15,6 +15,7 @@
     include '../../class/Crud.php';
     include '../../class/Sql.php';
     $query = new Crud();
+    $sql = new Sql();
     include '../../class/LoginHandler.php';
 
     (new LoginHandler())->checkLoggedIn();
@@ -34,6 +35,14 @@
 
 
     <body id="top">
+
+        <form method="post">
+            <input type="submit" name="showAll" value="toon allemaal">
+            <input type="submit" name="minderJarig" value="tot 18">
+            <input type="submit" name="meerderJarig" value="vanaf 18">
+        </form>
+
+
         <table>
             <thead>
                 <tr>
