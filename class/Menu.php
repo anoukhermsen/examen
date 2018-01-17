@@ -73,18 +73,19 @@ class Menu
                         <li><a href='../users/overviewUsers.php'>Overzicht</a></li>
                     </ul>
                 </li>
-                <li><a href='#'>Instituten</a>
+                <li><a>Instituten</a>
                     <ul>
                         <li><a href='../institute/createInstitute.php'>Toevoegen</a></li>
                         <li><a href='../institute/overviewInstitute.php'>Overzicht</a></li>
                     </ul>
                 </li>
-                <li><a href='#'>Jongeren</a>
+                <li><a>Jongeren</a>
                     <ul>
                         <li><a href='../youth/createYouth.php'>Toevoegen</a></li>
                         <li><a href='../youth/overviewYouth.php'>Overzicht</a></li>
                     </ul>
                 </li>
+                <li><a href='../users/updateUser.php' class="right">Gegevens bewerken</a>
                 <li><a href='../../logout.php' class="right">Uitloggen</a>
             </ul>
 

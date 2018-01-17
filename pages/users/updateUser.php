@@ -22,7 +22,7 @@
     $table = "gebruikers";
     $where = 'gebruikersId';
     $columnSort = "gebruikersEmail";
-    $id = $_GET['id'];
+    $id = $_SESSION['gebruikersId'];
 
 
     if(isset($_POST['aanmaken']))
