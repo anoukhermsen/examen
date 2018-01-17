@@ -57,6 +57,7 @@
                     <th>Informatie overzicht</th>
                     <th> </th>
                     <th>Bewerken</th>
+                    <th>Archiveer</th>
                     <th>Aantal jongere</th>
                 </tr>
             </thead>
@@ -83,6 +84,7 @@
                                 <td><a href=../youth/overviewYouthInformation.php?id=". $value['jongereId'] ."><img src='../../img/info.png'></a></td>
                                 <td></td>
                                 <td><a href=../youth/updateYouth.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
+                                <td><a href=../youth/archiveYouth.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
                                 
                                 
                         ";

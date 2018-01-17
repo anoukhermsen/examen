@@ -17,7 +17,7 @@
     $query = new Crud();
     $sql = new Sql();
 
-    //(new LoginHandler())->checkRights();
+    (new LoginHandler())->checkLoggedIn();
 
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
@@ -47,7 +47,6 @@
                     <th>Inschrijfdatum</th>
                     <th>Afgerond</th>
                     <th>Bewerken</th>
-                    <th>Archiveren</th>
                 </tr>
             </thead>
 
@@ -75,8 +74,7 @@
                                 <td>".$newDateTimeString."</td>
                                 <td>".$value['activiteitAfgerond']."</td>
                                 <td><a href=../youthActiviti/updateYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../youthActiviti/archiveYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
-                                <td><a href=../pdfTable.php?id=". $value['jongereId'] ."><img src='../../img/pdf.png'></a></td>
+                                
                         ";
 
                 }
@@ -94,7 +92,6 @@
             <th>Instituut Naam</th>
             <th>Start datum</th>
             <th>Bewerken</th>
-            <th>Archiveren</th>
         </tr>
         </thead>
 
@@ -112,14 +109,21 @@
                                 <td>".$value['instituutNaam']."</td>
                                 <td>".$newDateTimeString."</td>
                                 <td><a href=../youthInstitute/updateYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../youthInstitute/archiveYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
                         ";
 
         }
         ?>
 
         </tr>
+
         </tbody>
     </table>
+    <?php
+    echo"
+        <table>
+        <td><a href=../pdfTable.php?id=".$value['jongereId']."><img src='../../img/pdf.png'></a></td>
+        </table>
+    ";
+    ?>
     </body>
 </html>
