@@ -13,13 +13,13 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','',10);
 
 $table1=new easyTable($pdf, 2);
-$table1->easyCell('Raportage', 'font-size:30; font-style:B; font-color:#00bfff;');
-$table1->easyCell('', 'img:../images/demo/backgrounds/logo-landstede.jpg, w40; align:R;');
+$table1->easyCell('Rapportage', 'font-size:30; font-style:B; font-color:#3CA222;');
+$table1->easyCell('', 'img:../images/demo/backgrounds/klavertjevier.jpg, w40; align:R;');
 $table1->printRow();
 
 $table1->rowStyle('font-size:15; font-style:B;');
 $table1->easyCell('Gebruikers gegevens');
-$table1->easyCell('Landstede Harderwijk', 'align:R;');
+$table1->easyCell('Jongeren Kansrijker', 'align:R;');
 $table1->printRow();
 $table1->rowStyle('font-size:12;');
 
@@ -35,6 +35,8 @@ foreach ($result->selectFromTable($table, null, $where, $id, null, null, null, $
     $achternaam = $value['jongereAchternaam'];
     $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
     $newDateString = $myDate->format('d-m-Y');
+    $myDateInschrijf = DateTime::createFromFormat('Y-m-d H:i:s', $value['jongereInschrijfdatum']);
+    $newDateStringInschrijf = $myDateInschrijf->format('d-m-Y H:i:s');
 }
 
 $tables = "activiteit";
@@ -46,8 +48,8 @@ foreach ($result->selectFromTable($tables, null, null, null, null, null, null, $
 
 
 $table1->rowStyle('font-size:12;');
-$table1->easyCell("<b>Name:</b> $naam $tussenvoegsel $achternaam\n<b>Geboortedatum:</b> $newDateString\n");
-$table1->easyCell("Gerben Dijkstra\n Westeinde 33 \n Harderwijk\n 3844 DD\n 0341 437 937", 'align:R;');
+$table1->easyCell("<b>Name:</b> $naam $tussenvoegsel $achternaam\n<b>Geboortedatum:</b> $newDateString\n<b> Inschrijfdatum:</b> $newDateStringInschrijf\n");
+$table1->easyCell("M. Norton\n Muziekwijk 22/15 \n3564 ND Almere\n 0352 741 209", 'align:R;');
 $table1->printRow();
 $table1->endTable(5);
 //====================================================================
