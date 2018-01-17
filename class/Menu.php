@@ -13,8 +13,9 @@ class Menu
         ?>
         <html>
         <head>
-            <img src="../img/klavertjevier.jpg">
-            <H1>Jongeren Kansrijker</H1>
+            <div>
+            <img src="../../img/klavertjevier.jpg"height="147" style="float:left"><br><H1>Jongeren Kansrijker</H1><br>
+            </div>
         </head>
         <style>
 /*Made by http://www.cssterm.com/css-menus/horizontal-css-menu/simple-drop-down-menu*/
@@ -39,11 +40,11 @@ class Menu
                 top:-9999px;
                 list-style-type:none;
             }
-            .drop_menu li:hover { position:relative; background:#5FD367; }
+            .drop_menu li:hover { position:relative; background:#3ca222; }
             .drop_menu li:hover ul {
                 left:0px;
                 top:49px;
-                background:#5FD367;
+                background:#3ca222;
                 padding:0px;
             }
 
@@ -52,7 +53,7 @@ class Menu
                 display:block;
                 width:168px;
                 text-indent:15px;
-                background-color:#5FD367;
+                background-color:#3ca222;
             }
             .drop_menu li:hover ul li a:hover { background:#005555; }
 
