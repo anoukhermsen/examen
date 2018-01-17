@@ -1,3 +1,7 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
+</head>
 <?php
 /**
  * Created by PhpStorm.
