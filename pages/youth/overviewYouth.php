@@ -35,7 +35,12 @@
 
 
     <body id="top">
+<<<<<<< HEAD
     <a href=../youth/overviewArchivedYouth.php>Overzicht gearchiveerde jongere</a>
+=======
+    <a href="overviewArchivedYouth.php">Gearchiveerde</a>
+
+>>>>>>> origin/master
         <form method="post">
             <input type="submit" name="showAll" value="toon allemaal">
             <input type="submit" name="minderJarig" value="tot 18">

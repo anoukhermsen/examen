@@ -39,8 +39,8 @@ $id = 1;
         <th>Achternaam</th>
         <th>Geboortedatum</th>
         <th>Inschrijfdatum</th>
-        <th>Inschrijven voor een Activiteit</th>
-        <th>Inschrijven voor een Instituut</th>
+        <th>Afspraken aanvragen</th>
+        <th>Afspraken overzicht</th>
         <th>Terugzetten</th>
         <th>Verwijderen</th>
     </tr>
@@ -63,6 +63,8 @@ $id = 1;
                                 <td>".$value['jongereAchternaam']."</td>
                                 <td>".$newDateString."</td>
                                 <td>".$newDateTimeString."</td>
+                                <td><a href=../appointment/createAppointmentData.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
+                                <td><a href=../youth/setbackYouth.php?id=". $value['jongereId'] ."><img src='../../img/info.png'></a></td>
                                 <td><a href=../youth/setbackYouth.php?id=". $value['jongereId'] ."><img src='../../img/back.png'></a></td>
                                 <td><a href=../youth/deleteYouth.php?id=". $value['jongereId'] ."><img src='../../img/delete.png'></a></td>
                                 
