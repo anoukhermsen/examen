@@ -6,6 +6,7 @@
  */
 include 'class/LoginHandler.php';
 
+session_destroy();
 if(isset($_POST['loginButton']))
 {
     if((new LoginHandler())->logIn($_POST['gebruikersEmail'], $_POST['gebruikersWachtwoord']))
