@@ -24,8 +24,6 @@ class LoginHandler extends DBConfi
         $stmt->bindParam(':gebruikersWachtwoord', $this->getGebruikersWachtwoord());
         $stmt->execute();
 
-        var_dump($gebruikersEmail);
-        var_dump($gebruikersWachtwoord);
 
 //        $this->setUserRights(($stmt->fetch()['cusRights']));
 //        $this->setUserId(($stmt->fetch()['cusId']));
