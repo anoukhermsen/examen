@@ -8,9 +8,11 @@
 
     include '../../class/Crud.php';
     include '../../class/LoginHandler.php';
-(new LoginHandler())->checkLoggedIn();
 
-    session_start();
+session_start();
+    (new LoginHandler())->checkLoggedIn();
+
+
 
     $query = new Crud();
 

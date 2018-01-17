@@ -24,12 +24,14 @@
     $table = "instituut";
     $columnSort = "instituutNaam";
     $orderBy = "ASC";
-    $where = "gebruikersArchief";
+    $where = "instituutArchief";
     $id = 1;
 ?>
 
 
     <body id="top">
+
+    <a href=../institute/overviewInstitute.php>Overzicht instituten</a>
         <table>
             <thead>
                 <tr>

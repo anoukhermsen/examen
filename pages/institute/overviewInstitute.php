@@ -24,12 +24,13 @@
     $table = "instituut";
     $columnSort = "instituutNaam";
     $orderBy = "ASC";
-    $where = "gebruikersArchief";
+    $where = "instituutArchief";
     $id = 0;
 ?>
 
 
     <body id="top">
+    <a href=../institute/overviewArchivedInstitute.php>Overzicht gearchiveerde instituten</a>
         <table>
             <thead>
                 <tr>
@@ -41,7 +42,7 @@
             </thead>
 
             <?php
-                foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
+                foreach ($query->selectFromTable($table, null, $where, $id, null, null,  $columnSort, $orderBy) as $value)
                 {
                     echo" 
                         <tbody>
