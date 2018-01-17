@@ -30,6 +30,7 @@
 
 
     <body id="top">
+    <a href=../youthInstitute/overviewArchivedYouthInstitute.php>Overzicht gearchiveerde jongere</a>
         <table>
             <thead>
                 <tr>

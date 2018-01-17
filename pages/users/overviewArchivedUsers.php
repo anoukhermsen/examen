@@ -1,3 +1,7 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
+</head>
 <?php
 /**
  * Created by PhpStorm.
@@ -25,9 +29,11 @@
     $id = 1;
 ?>
 
-<html>
+
 
     <body id="top">
+
+    <a href=../users/overviewUsers.php>Overzicht gebruikers</a>
         <table>
             <thead>
                 <tr>

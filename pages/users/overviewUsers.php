@@ -29,7 +29,7 @@
     $id = 0;
 ?>
 
-
+    <a href=../users/overviewArchivedUsers.php>Overzicht gearchiveerde gebruikers</a>
         <table>
             <thead>
                 <tr>

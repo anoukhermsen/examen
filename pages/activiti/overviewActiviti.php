@@ -1,3 +1,7 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
+</head>
 <?php
 /**
  * Created by PhpStorm.
@@ -20,11 +24,13 @@
     $table = "activiteit";
     $columnSort = "activiteitId";
     $orderBy = "ASC";
+    $where = "activiteitArchief";
+    $id = 0;
 ?>
 
-<html>
 
     <body id="top">
+    <a href=../activiti/overviewArchivedActiviti.php>Overzicht gearchiveerde activiteiten</a>
         <table>
             <thead>
                 <tr>
@@ -36,7 +42,7 @@
             </thead>
 
             <?php
-                foreach ($query->selectFromTable($table, null, null, null, null, null,  $columnSort, $orderBy) as $value)
+                foreach ($query->selectFromTable($table, null, $where, $id, null, null,  $columnSort, $orderBy) as $value)
                 {
                     /*
                      * Het genereren van de datum van het Engelse/Amerikaanse begrip naar het Nederlands
