@@ -13,13 +13,13 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','',10);
 
 $table1=new easyTable($pdf, 2);
-$table1->easyCell('Rapportage', 'font-size:30; font-style:B; font-color:#3CA222;');
-$table1->easyCell('', 'img:../img/klavertjevier.jpg, w40; align:R;');
+$table1->easyCell('', 'img:../img/klavertjevier.jpg, w40; align:L;');
+$table1->easyCell('Rapportage', 'align:R; font-size:30; font-style:B; font-color:#3CA222;');
 $table1->printRow();
 
 $table1->rowStyle('font-size:15; font-style:B;');
 //$table1->easyCell('Gebruikers gegevens');
-$table1->easyCell('Jongeren Kansrijker', 'align:R;');
+$table1->easyCell('Jongeren Kansrijker', 'align:L;');
 $table1->printRow();
 $table1->rowStyle('font-size:12;');
 
@@ -41,29 +41,29 @@ foreach ($result->selectFromTable($table, null, $where, $id, null, null, null, $
 
 $tables = "activiteit";
 $columnSorts = "activiteitId";
-foreach ($result->selectFromTable($tables, null, null, null, null, null, null, $columnSorts) as $value)
+foreach ($result->selectFromTable($table, null, null, null, null, null, null, $columnSorts) as $value)
 {
     $factuurnummer = $value['activiteitId'];
 }
 
 
 $table1->rowStyle('font-size:12;');
-$table1->easyCell("\n\n\n");
-$table1->easyCell("M. Norton\n Muziekwijk 22/15 \n3564 ND Almere\n 0352 741 209", 'align:R;');
+$table1->easyCell("M. Norton\n Muziekwijk 22/15 \n3564 ND Almere\n 0352 741 209", 'align:L;');
 $table1->printRow();
 $table1->endTable(5);
 //====================================================================
 
-$products=array(
-    'Deelnamen aan Lanparty',
-    );
+$products = $value['jongereRoepnaam'];
 
-$table=new easyTable($pdf, '{130, 20, 20, 20}','align:C{LCRR};border:1; border-color:#a1a1a1; ');
 
-$table->rowStyle('align:{CCCR};valign:M;bgcolor:#000000; font-color:#ffffff; font-family:Arial; font-style:B;');
-$table->easyCell('Product');
-$table->easyCell('Aantal');
-$table->easyCell('Prijs');
+$table=new easyTable($pdf, '{35, 35, 35, 40, 35}','align:L{LLLLL};border:1; border-color:#a1a1a1; ');
+
+$table->rowStyle('align:{LLLLL};valign:M;bgcolor:#000000; font-color:#ffffff; font-family:Arial; font-style:B;');
+$table->easyCell('Jongere roepnaam');
+$table->easyCell('Jongere tussenvoegsel');
+$table->easyCell('Jongere achternaam');
+$table->easyCell('Instituut/opleidings naam');
+$table->easyCell('Start datum');
 $table->printRow();
 
 for($i=0; $i < 1; $i++)
