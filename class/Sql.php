@@ -70,7 +70,8 @@ class Sql extends DBConfi
      */
     public function selectFromActiviteitFetch()
     {
-        $this->setQuery($this->getConn()->prepare('SELECT * FROM `activiteit`'));
+        $query = "SELECT * FROM `activiteit`";
+        $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
         return ($this->getQuery()->fetchAll());
@@ -81,7 +82,8 @@ class Sql extends DBConfi
      */
     public function selectFromInstituutFetch()
     {
-        $this->setQuery($this->getConn()->prepare('SELECT * FROM `instituut`'));
+        $query = "SELECT * FROM `instituut`";
+        $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
         return ($this->getQuery()->fetchAll());
@@ -92,7 +94,8 @@ class Sql extends DBConfi
      */
     public function joinJongereActiviteit($jongereId)
     {
-        $this->setQuery($this->getConn()->prepare("SELECT * FROM jongereactiviteit JOIN activiteit ON jongereactiviteit.activiteitId = activiteit.activiteitId WHERE jongereId = ". $jongereId));
+        $query = "SELECT * FROM jongereactiviteit JOIN activiteit ON jongereactiviteit.activiteitId = activiteit.activiteitId WHERE jongereId = ". $jongereId;
+        $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
         return ($this->getQuery()->fetchAll());
@@ -103,7 +106,8 @@ class Sql extends DBConfi
      */
     public function joinJongereInstituut($jongereId)
     {
-        $this->setQuery($this->getConn()->prepare("SELECT * FROM `jongereinstituut` JOIN instituut ON jongereinstituut.instituutId = instituut.instituutId WHERE jongereId =". $jongereId));
+        $query = "SELECT * FROM `jongereinstituut` JOIN instituut ON jongereinstituut.instituutId = instituut.instituutId WHERE jongereId =". $jongereId;
+        $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
         return ($this->getQuery()->fetchAll());
@@ -114,7 +118,8 @@ class Sql extends DBConfi
      */
     public function joinJongereAfspraak($jongereId)
     {
-        $this->setQuery($this->getConn()->prepare("SELECT * FROM `jongereafspraak` JOIN gebruikers ON gebruikers.gebruikersId = jongereafspraak.gebruikersId WHERE jongereId=".$jongereId));
+        $query = "SELECT * FROM `jongereafspraak` JOIN gebruikers ON gebruikers.gebruikersId = jongereafspraak.gebruikersId WHERE jongereId=".$jongereId;
+        $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
         return ($this->getQuery()->fetchAll());
@@ -125,7 +130,8 @@ class Sql extends DBConfi
      */
     public function teltAantalJongeren($jongereId)
     {
-        $this->setQuery($this->getConn()->prepare("SELECT COUNT(*) FROM jongere WHERE jongereArchief = ". $jongereId));
+        $query = "SELECT COUNT(*) FROM jongere WHERE jongereArchief = ". $jongereId;
+        $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
         $count = $this->getQuery()->fetchColumn();
@@ -134,6 +140,17 @@ class Sql extends DBConfi
         return $count;
     }
 
+    /*
+     *
+     */
+    public function gebruikersSort($id)
+    {
+        $query = "SELECT * FROM gebruikers WHERE gebruikersId !=". $id;
+        $this->setQuery($this->getConn()->prepare($query));
+
+        $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
+    }
     //////////////////////////////////////////Getters en setters////////////////////////////////////////////////////////
     public function getTable()
     {

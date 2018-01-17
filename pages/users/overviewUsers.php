@@ -14,8 +14,8 @@
 
     session_start();
 
-    include '../../class/Crud.php';
-    $query = new Crud();
+    include '../../class/Sql.php';
+    $sql = new Sql();
     include '../../class/LoginHandler.php';
     (new LoginHandler())->checkLoggedIn();
     include '../../class/Menu.php';
@@ -30,7 +30,7 @@
     $columnSort = "gebruikersEmail";
     $orderBy = "ASC";
     $where = "gebruikersArchief";
-    $id = 0;
+    $id = $_SESSION['gebruikersId'];
 
 ?>
 
@@ -54,8 +54,9 @@
 
             <?php
             /* SELECT * FROM 'gebruikers' WHERE 'gebruikersArchief' = 0*/
-                foreach ($query->selectFromTable($table, null, $where, $id, null, null, $columnSort, $orderBy) as $value)
+                foreach ($sql->gebruikersSort($id) as $value)
                 {
+
                     //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
                     echo" 
                         <tbody>
@@ -65,15 +66,8 @@
                                 <td>".$value['gebruikersTussenvoegsel']."</td>
                                 <td>".$value['gebruikersAchternaam']."</td>
                                 <td><a href=../users/updateUser.php?id=". $value['gebruikersId'] ."><img src='../../img/edit.png'></a></td>
-                        ";      if($_GET['id'] = $value['gebruikersId'])
-                                {
-                                    echo "";
-                                }
-
-                                else
-                                {
-                                    echo "<td><a href=../users/archiveUser.php?id=". $value['gebruikersId'] ."><img src='../../img/archiveer.png'></a></td>";
-                                }
+                        
+                                   <td><a href=../users/archiveUser.php?id=". $value['gebruikersId'] ."><img src='../../img/archiveer.png'></a></td>";
                 }
 
                 ?>
