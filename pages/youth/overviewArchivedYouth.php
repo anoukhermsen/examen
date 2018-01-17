@@ -14,9 +14,12 @@ session_start();
 
 include '../../class/Crud.php';
 $query = new Crud();
-include '../../class/LoginHandler.php';
 
+include '../../class/LoginHandler.php';
 (new LoginHandler())->checkLoggedIn();
+
+include '../../class/Sql.php';
+$sql = new Sql();
 
 /*
  * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
@@ -39,10 +42,12 @@ $id = 1;
         <th>Achternaam</th>
         <th>Geboortedatum</th>
         <th>Inschrijfdatum</th>
+        <th>Uitschrijfdatum</th>
         <th>Afspraken aanvragen</th>
         <th>Afspraken overzicht</th>
         <th>Terugzetten</th>
         <th>Verwijderen</th>
+        <th>Aantal jongere</th>
     </tr>
     </thead>
 
@@ -53,8 +58,14 @@ $id = 1;
          * Van 2001-01-02 naar 02-01-2001*/
         $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $value['jongereInschrijfdatum']);
         $newDateTimeString = $myDateTime->format('d-m-Y H:i:s');
+
+        $myDateTimeUitschrijf = DateTime::createFromFormat('Y-m-d', $value['jongereUitschrijfdatum']);
+        $newDateTimeStringUitschrijf = $myDateTimeUitschrijf->format('d-m-Y');
+
         $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
         $newDateString = $myDate->format('d-m-Y');
+
+
         echo" 
                         <tbody>
                             <tr>
@@ -63,6 +74,7 @@ $id = 1;
                                 <td>".$value['jongereAchternaam']."</td>
                                 <td>".$newDateString."</td>
                                 <td>".$newDateTimeString."</td>
+                                <td>".$newDateTimeStringUitschrijf."</td>
                                 <td><a href=../appointment/createAppointmentData.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
                                 <td><a href=../youth/setbackYouth.php?id=". $value['jongereId'] ."><img src='../../img/info.png'></a></td>
                                 <td><a href=../youth/setbackYouth.php?id=". $value['jongereId'] ."><img src='../../img/back.png'></a></td>
@@ -70,6 +82,9 @@ $id = 1;
                                 
                         ";
     }
+                       echo" 
+                                <td>".(new Sql())->teltAantalJongeren()."</a></td>
+                           ";
     ?>
 
     </tr>
