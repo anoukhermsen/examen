@@ -12,30 +12,32 @@
  */
     session_start();
 
-    include '../../class/Sql.php';
+    include '../../class/Crud.php';
     include '../../class/LoginHandler.php';
 
 
 (new LoginHandler())->checkLoggedIn();
 
 
-    $columns = "jongereArchief";
+    $columns = array("jongereArchief", "jongereUitschrijfdatum");
     $table = "jongere";
     $where = 'jongereId';
     $id = $_GET['id'];
 
-    $query = new Sql();
+    $query = new Crud();
 
 
     /*Archiveren of niet*/
 
     if (isset($_POST['Ja']))
     {
-
-        $values = 1;
-        $query->archiveRow($table, $columns, $values, $where, $id);
-        echo'de gegevens worden gearchiveerd';
-        header('location: overviewYouth.php');
+        $t=time();
+        $date=(date("Y-m-d",$t));
+        $values = array(1, $date);
+        $query->updateRow($table, $columns, $where, $values, $id);
+        echo'de gegevens worden gearchiveerd<br>';
+        //echo $date;
+        header('location: overviewArchivedYouth.php');
     }
 
     if (isset($_POST['Nee']))
