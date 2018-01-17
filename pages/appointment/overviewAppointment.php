@@ -15,47 +15,48 @@
 
     include '../../class/Crud.php';
     $query = new Crud();
-    include '../../class/LoginHandler.php';
 
-(new LoginHandler())->checkLoggedIn();
+    include '../../class/LoginHandler.php';
+    (new LoginHandler())->checkLoggedIn();
+
+    include '../../class/Sql.php';
+    $sql = new Sql();
 
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
      */
-    $table = "gebruikers";
-    $columnSort = "gebruikersEmail";
+    $table = "jongereafspraak";
+    $columnSort = "jongereAfspraakId";
     $orderBy = "ASC";
-    $where = "gebruikersArchief";
-    $id = 0;
+    $where = "jongereId";
+    $id = $_GET['id'];
+    $gebruikersId = $_SESSION['gebruikersId'];
 ?>
 
 
         <table>
             <thead>
                 <tr>
-                    <th>Gebruikers Email</th>
-                    <th>Gebruikers Voornaam</th>
-                    <th>Gebruikers Tussenvoegsel</th>
-                    <th>Gebruikers Achternaam</th>
-                    <th>Bewerken</th>
-                    <th>Archiveren</th>
+                    <th>Medewerker</th>
+                    <th>Afspraaks aantekeningen</th>
+                    <th>Datum van afspraak</th>
                 </tr>
             </thead>
 
             <?php
             /* SELECT * FROM 'gebruikers' WHERE 'gebruikersArchief' = 0*/
-                foreach ($query->selectFromTable($table, null, $where, $id, null, null, $columnSort, $orderBy) as $value)
+                foreach ($sql->joinJongereAfspraak($id, $gebruikersId) as $value)
                 {
+                    $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereAfspraakdatum']);
+                    $newDateString = $myDate->format('d-m-Y');
+
                     //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");
                     echo" 
                         <tbody>
                             <tr>
-                                <td>".$value['gebruikersEmail']."</td>
                                 <td>".$value['gebruikersVoornaam']."</td>
-                                <td>".$value['gebruikersTussenvoegsel']."</td>
-                                <td>".$value['gebruikersAchternaam']."</td>
-                                <td><a href=../users/updateUser.php?id=". $value['gebruikersId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../users/archiveUser.php?id=". $value['gebruikersId'] ."><img src='../../img/archiveer.png'></a></td>
+                                <td>".$value['jongereAfspraakBesch']."</td>
+                                <td>".$newDateString."</td>
                         ";
                 }
             ?>
