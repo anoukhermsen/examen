@@ -83,7 +83,7 @@ $id = 1;
                         ";
     }
                        echo" 
-                                <td>".(new Sql())->teltAantalJongeren()."</a></td>
+                                <td>".(new Sql())->teltAantalJongeren($id)."</a></td>
                            ";
     ?>
 

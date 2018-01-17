@@ -63,10 +63,18 @@
                                 <td>".$value['gebruikersTussenvoegsel']."</td>
                                 <td>".$value['gebruikersAchternaam']."</td>
                                 <td><a href=../users/updateUser.php?id=". $value['gebruikersId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../users/archiveUser.php?id=". $value['gebruikersId'] ."><img src='../../img/archiveer.png'></a></td>
-                        ";
+                        ";      if($_GET['id'] = $value['gebruikersId'])
+                                {
+                                    echo "";
+                                }
+
+                                else
+                                {
+                                    echo "<td><a href=../users/archiveUser.php?id=". $value['gebruikersId'] ."><img src='../../img/archiveer.png'></a></td>";
+                                }
                 }
-            ?>
+
+                ?>
 
                             </tr>
                         </tbody>

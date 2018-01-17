@@ -46,10 +46,11 @@ class Sql extends DBConfi
      */
     public function leeftijdBerekenenMeerderJarig()
     {
-        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE()-INTERVAL 100 YEAR AND CURRENT_DATE()-INTERVAL 18 YEAR";
+        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE() - INTERVAL 100 YEAR AND CURRENT_DATE()- INTERVAL 18 YEAR AND `jongereArchief` = 0";
         $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
     }
 
     /*
@@ -57,10 +58,11 @@ class Sql extends DBConfi
      */
     public function leeftijdBerekenenMinderJarig()
     {
-        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE()- INTERVAL 18 YEAR AND CURRENT_DATE() - INTERVAL 0 YEAR AND `jongereArchief` = 0";
+        $query = "SELECT * FROM `jongere` WHERE `jongereGeboortedatum` BETWEEN CURRENT_DATE() - INTERVAL 18 YEAR AND CURRENT_DATE() - INTERVAL 0 YEAR AND `jongereArchief` = 0";
         $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
     }
 
     /*
@@ -121,9 +123,9 @@ class Sql extends DBConfi
     /*
      *
      */
-    public function teltAantalJongeren()
+    public function teltAantalJongeren($jongereId)
     {
-        $this->setQuery($this->getConn()->prepare("SELECT COUNT(*) FROM jongere WHERE jongereArchief = 0"));
+        $this->setQuery($this->getConn()->prepare("SELECT COUNT(*) FROM jongere WHERE jongereArchief = ". $jongereId));
 
         $this->getQuery()->execute();
         $count = $this->getQuery()->fetchColumn();
