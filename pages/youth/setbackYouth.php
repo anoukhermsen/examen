@@ -16,7 +16,6 @@
     session_start();
 
     include '../../class/Sql.php';
-    $query = new Sql();
     include '../../class/LoginHandler.php';
 
 
@@ -25,11 +24,13 @@
     /*
      * De variable's die er worden gebruikt om de gekozen gebruiker te kunnen verwijderen door middel van het gebruiken van een $_GET id
      */
-    $columns = "gebruikersArchief";
-    $table = "gebruikers";
-    $where = 'gebruikersId';
-    $columnSort = "gebruikersEmail";
+    $columns = "jongereArchief";
+    $table = "jongere";
+    $where = 'jongereId';
+
     $id = $_GET['id'];
+
+    $query = new Sql();
 
     if (isset($_POST['Ja']))
     {

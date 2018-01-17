@@ -34,7 +34,7 @@
 
         $values = 0;
         $query->archiveRow($table, $columns, $values, $where, $id);
-        echo'de gegevens worden gearchiveerd';
+        echo'de gegevens worden terug gezet';
         header('location: overviewInstitute.php');
     }
 

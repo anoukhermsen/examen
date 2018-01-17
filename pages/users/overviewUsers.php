@@ -1,6 +1,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
 <?php
@@ -16,8 +17,10 @@
     include '../../class/Crud.php';
     $query = new Crud();
     include '../../class/LoginHandler.php';
-
 (new LoginHandler())->checkLoggedIn();
+    include '../../class/Menu.php';
+(new Menu())->generateMenu();
+
 
     /*
      * De variable's die er nodig zijn om de informatie te leveren om het naar de database te sturen
@@ -27,7 +30,13 @@
     $orderBy = "ASC";
     $where = "gebruikersArchief";
     $id = 0;
+
 ?>
+
+
+
+
+
 
     <a href=../users/overviewArchivedUsers.php>Overzicht gearchiveerde gebruikers</a>
         <table>
