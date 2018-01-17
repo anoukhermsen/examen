@@ -15,7 +15,7 @@ class Crud extends DBConfi
 
     ////////////////////////////////////////////Methods/////////////////////////////////////////////////////////////////
     /*Dynamische SELECT functie met gegevens vanuit de database*/
-    public function selectFromTable($table, $columns, $where = null, $id = null, $coupleTable = null, $row = null, $columnSort, $orderBy)
+    public function selectFromTable($table, $columns, $where = null, $id = null, $columnSort, $orderBy)
     {
         $aantal = count($columns);
         $teller = 1;
