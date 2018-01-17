@@ -13,6 +13,8 @@ class Menu
         ?>
         <html>
         <head>
+            <img src="../img/klavertjevier.jpg">
+            <H1>Jongeren Kansrijker</H1>
         </head>
         <style>
 /*Made by http://www.cssterm.com/css-menus/horizontal-css-menu/simple-drop-down-menu*/
