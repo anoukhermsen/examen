@@ -110,6 +110,17 @@ class Sql extends DBConfi
     /*
      *
      */
+    public function joinJongereAfspraak($jongereId)
+    {
+        $this->setQuery($this->getConn()->prepare("SELECT * FROM `jongereafspraak` JOIN gebruikers ON gebruikers.gebruikersId = jongereafspraak.gebruikersId WHERE jongereId=".$jongereId));
+
+        $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
+    }
+
+    /*
+     *
+     */
     public function teltAantalJongeren()
     {
         $this->setQuery($this->getConn()->prepare("SELECT COUNT(*) FROM jongere WHERE jongereArchief = 0"));

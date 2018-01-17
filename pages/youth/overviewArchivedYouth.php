@@ -76,7 +76,7 @@ $id = 1;
                                 <td>".$newDateTimeString."</td>
                                 <td>".$newDateTimeStringUitschrijf."</td>
                                 <td><a href=../appointment/createAppointmentData.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
-                                <td><a href=../youth/setbackYouth.php?id=". $value['jongereId'] ."><img src='../../img/info.png'></a></td>
+                                <td><a href=../appointment/overviewAppointment.php?id=". $value['jongereId'] ."><img src='../../img/info.png'></a></td>
                                 <td><a href=../youth/setbackYouth.php?id=". $value['jongereId'] ."><img src='../../img/back.png'></a></td>
                                 <td><a href=../youth/deleteYouth.php?id=". $value['jongereId'] ."><img src='../../img/delete.png'></a></td>
                                 
