@@ -5,7 +5,7 @@
  * Date: 16-1-2018
  */
 include 'class/LoginHandler.php';
-
+session_start();
 session_destroy();
 if(isset($_POST['loginButton']))
 {
