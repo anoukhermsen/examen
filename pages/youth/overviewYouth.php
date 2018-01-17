@@ -13,10 +13,19 @@
     session_start();
 
     include '../../class/Crud.php';
+<<<<<<< HEAD
     $query = new Crud();
     include '../../class/Sql.php';
     $sql = new Sql();
     include '../../class/LoginHandler.php';
+=======
+    include '../../class/Sql.php';
+    include '../../class/LoginHandler.php';
+    $query = new Crud();
+
+    $sql = new Sql();
+
+>>>>>>> origin/master
     (new LoginHandler())->checkLoggedIn();
     include '../../class/Menu.php';
     (new Menu())->generateMenu();
@@ -32,6 +41,7 @@
 
 
 
+
 ?>
 
 
@@ -43,7 +53,6 @@
             <input type="submit" name="minderJarig" value="tot 18">
             <input type="submit" name="meerderJarig" value="vanaf 18">
         </form>
-
 
         <table>
             <thead>
@@ -59,11 +68,73 @@
                     <th> </th>
                     <th>Bewerken</th>
                     <th>Archiveer</th>
-                    <th>Aantal jongere</th>
                 </tr>
             </thead>
 
             <?php
+            if (isset($_POST['minderJarig']))
+            {
+                foreach ($sql->leeftijdBerekenenMinderJarig() as $value)
+                {
+                    /**Veranderen van amerikaanse datum naar nederlands
+                     * Van 2001-01-02 naar 02-01-2001*/
+                    $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $value['jongereInschrijfdatum']);
+                    $newDateTimeString = $myDateTime->format('d-m-Y H:i:s');
+                    $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
+                    $newDateString = $myDate->format('d-m-Y');
+                    echo " 
+                        <tbody>
+                            <tr>
+                                <td>" . $value['jongereRoepnaam'] . "</td>
+                                <td>" . $value['jongereTussenvoegsel'] . "</td>
+                                <td>" . $value['jongereAchternaam'] . "</td>
+                                <td>" . $newDateString . "</td>
+                                <td>" . $newDateTimeString . "</td>
+                                <td><a href=../youthActiviti/createYouthActiviti.php?id=" . $value['jongereId'] . "><img src='../../img/inschrijven.png'></a></td>
+                                <td><a href=../youthInstitute/createYouthInstitute.php?id=" . $value['jongereId'] . "><img src='../../img/instituut.png'></a></td>
+                                <td><a href=../youth/overviewYouthInformation.php?id=" . $value['jongereId'] . "><img src='../../img/info.png'></a></td>
+                                <td></td>
+                                <td><a href=../youth/updateYouth.php?id=" . $value['jongereId'] . "><img src='../../img/edit.png'></a></td>
+                                <td><a href=../youth/archiveYouth.php?id=" . $value['jongereId'] . "><img src='../../img/archiveer.png'></a></td>
+                                
+                                
+                        ";
+                }
+            }
+
+            elseif (isset($_POST['meerderJarig']))
+            {
+                foreach ($sql->leeftijdBerekenenMeerderJarig() as $value)
+                {
+                    /**Veranderen van amerikaanse datum naar nederlands
+                     * Van 2001-01-02 naar 02-01-2001*/
+                    $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $value['jongereInschrijfdatum']);
+                    $newDateTimeString = $myDateTime->format('d-m-Y H:i:s');
+                    $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
+                    $newDateString = $myDate->format('d-m-Y');
+                    echo " 
+                        <tbody>
+                            <tr>
+                                <td>" . $value['jongereRoepnaam'] . "</td>
+                                <td>" . $value['jongereTussenvoegsel'] . "</td>
+                                <td>" . $value['jongereAchternaam'] . "</td>
+                                <td>" . $newDateString . "</td>
+                                <td>" . $newDateTimeString . "</td>
+                                <td><a href=../youthActiviti/createYouthActiviti.php?id=" . $value['jongereId'] . "><img src='../../img/inschrijven.png'></a></td>
+                                <td><a href=../youthInstitute/createYouthInstitute.php?id=" . $value['jongereId'] . "><img src='../../img/instituut.png'></a></td>
+                                <td><a href=../youth/overviewYouthInformation.php?id=" . $value['jongereId'] . "><img src='../../img/info.png'></a></td>
+                                <td></td>
+                                <td><a href=../youth/updateYouth.php?id=" . $value['jongereId'] . "><img src='../../img/edit.png'></a></td>
+                                <td><a href=../youth/archiveYouth.php?id=" . $value['jongereId'] . "><img src='../../img/archiveer.png'></a></td>
+                                
+                                
+                        ";
+                }
+            }
+
+            else
+            {
+                echo "Totaal aantal jongeren: ".(new Sql())->teltAantalJongeren($id);
                 foreach ($query->selectFromTable($table, null, $where, $id, null, null, $columnSort, $orderBy) as $value)
                 {
                     /**Veranderen van amerikaanse datum naar nederlands
@@ -72,27 +143,26 @@
                     $newDateTimeString = $myDateTime->format('d-m-Y H:i:s');
                     $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
                     $newDateString = $myDate->format('d-m-Y');
-                    echo" 
+                    echo " 
                         <tbody>
                             <tr>
-                                <td>".$value['jongereRoepnaam']."</td>
-                                <td>".$value['jongereTussenvoegsel']."</td>
-                                <td>".$value['jongereAchternaam']."</td>
-                                <td>".$newDateString."</td>
-                                <td>".$newDateTimeString."</td>
-                                <td><a href=../youthActiviti/createYouthActiviti.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
-                                <td><a href=../youthInstitute/createYouthInstitute.php?id=". $value['jongereId'] ."><img src='../../img/instituut.png'></a></td>
-                                <td><a href=../youth/overviewYouthInformation.php?id=". $value['jongereId'] ."><img src='../../img/info.png'></a></td>
+                                <td>" . $value['jongereRoepnaam'] . "</td>
+                                <td>" . $value['jongereTussenvoegsel'] . "</td>
+                                <td>" . $value['jongereAchternaam'] . "</td>
+                                <td>" . $newDateString . "</td>
+                                <td>" . $newDateTimeString . "</td>
+                                <td><a href=../youthActiviti/createYouthActiviti.php?id=" . $value['jongereId'] . "><img src='../../img/inschrijven.png'></a></td>
+                                <td><a href=../youthInstitute/createYouthInstitute.php?id=" . $value['jongereId'] . "><img src='../../img/instituut.png'></a></td>
+                                <td><a href=../youth/overviewYouthInformation.php?id=" . $value['jongereId'] . "><img src='../../img/info.png'></a></td>
                                 <td></td>
-                                <td><a href=../youth/updateYouth.php?id=". $value['jongereId'] ."><img src='../../img/edit.png'></a></td>
-                                <td><a href=../youth/archiveYouth.php?id=". $value['jongereId'] ."><img src='../../img/archiveer.png'></a></td>
+                                <td><a href=../youth/updateYouth.php?id=" . $value['jongereId'] . "><img src='../../img/edit.png'></a></td>
+                                <td><a href=../youth/archiveYouth.php?id=" . $value['jongereId'] . "><img src='../../img/archiveer.png'></a></td>
                                 
                                 
                         ";
                 }
-                    echo "
-                                <td>".(new Sql())->teltAantalJongeren()."</a></td>
-                         ";
+            }
+
             ?>
 
                             </tr>
