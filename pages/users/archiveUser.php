@@ -33,7 +33,7 @@
     {
         $values = 1;
         $query->archiveRow($table, $columns, $values, $where, $id);
-        header('location: overviewUsers.php');
+        header('location: overviewArchivedUsers.php');
     }
 
     if (isset($_POST['Nee']))

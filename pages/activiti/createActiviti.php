@@ -34,7 +34,7 @@ session_start();
      * In dit stuk code is met behulp van Preg match een beveiliging er op gezet dat alleen een bepaald soort email kan worden toe gevoegt,
      * en met behulp van md5 worden de wachtwoorden beveiligd maar ook met behulp van htmlspecialchars wordt het insurten van de informatie beveiligd zodat hackers niet in de database kunnen komen.
      */
-        if(isset($_POST['submit']))
+        if(isset($_POST['aanmaken']))
         {
             if(!empty($_POST['activiteitNaam']) && !empty($_POST['activiteitStartdatum']))
             {
@@ -50,6 +50,11 @@ session_start();
             }
 
         }
+        if(isset($_POST['annuleren']))
+        {
+            echo 'Het toevoegen is geannuleerd';
+            header( "refresh:0.5;url=overviewActiviti.php" );
+        }
 
         //Het formulier waarbij je de gebruikers kunnen worden toe gevoegd
         echo '
@@ -60,7 +65,8 @@ session_start();
                     Begin datum:
                         <input type="date" name="activiteitStartdatum">
                            <br>
-                        <input type="submit" name="submit">
+                        <input type="submit" name="aanmaken" value="aanmaken">
+                        <input type="submit" name="annuleren" value="annuleren">
                 </form>
         
         

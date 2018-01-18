@@ -31,6 +31,7 @@
     $orderBy = "ASC";
     $where = "gebruikersArchief";
     $id = $_SESSION['gebruikersId'];
+    $archief = 0;
 
 ?>
 
@@ -54,7 +55,7 @@
 
             <?php
             /* SELECT * FROM 'gebruikers' WHERE 'gebruikersArchief' = 0*/
-                foreach ($sql->gebruikersSort($id) as $value)
+                foreach ($sql->gebruikersSort($id, $archief) as $value)
                 {
 
                     //$columns = array("userEmail", "userSurname", "userLastname", "userStudentNr", "userPassword", "userPhoto", "userRights");

@@ -27,7 +27,7 @@
     $table = "gebruikers";
     $where = 'gebruikersId';
     $columnSort = "gebruikersEmail";
-    $id = $_SESSION['gebruikersId'];
+    $id = $_GET['id'];
 
 
     if(isset($_POST['aanmaken']))
@@ -92,9 +92,9 @@
                         <input type='text' name='gebruikersAchternaam' value='<?php echo $value['gebruikersAchternaam'] ?>'>
                             </br>
 
-                    <br>
-                    <input type="submit" name="aanmaken" value="Updaten" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
-                    <input type="submit" name="annuleren" value="Annuleren" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+
+                    <input type="submit" name="aanmaken" value="Updaten">
+                    <input type="submit" name="annuleren" value="Annuleren">
             </form>
         <?php
                 }

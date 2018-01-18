@@ -44,19 +44,17 @@
 
 
             <form method="post">
-                <fieldset>
 
                     Weet u zeker dat u deze gebruiker wil verwijderen?
                         <br>
                     <?php
                     echo'
 
-                        <input type="submit" value="Ja" name="Ja" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
-                        <input type="submit" value="Nee" name="Nee" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                        <input type="submit" value="Ja" name="Ja">
+                        <input type="submit" value="Nee" name="Nee">
                     <input type="hidden" name="id" value="'. $_GET['id'] .'">
                     ';
                     ?>
-                </fieldset>
             </form>
         </div>
     </div>

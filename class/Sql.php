@@ -170,9 +170,9 @@ class Sql extends DBConfi
     /*
      *  Deze functie zogd ervoor dat een grbruiker zich zelf niet kunt verwijderen in de tabel
      */
-    public function gebruikersSort($id)
+    public function gebruikersSort($id, $archief)
     {
-        $query = "SELECT * FROM gebruikers WHERE gebruikersId !=". $id;
+        $query = "SELECT * FROM gebruikers WHERE gebruikersId !=". $id . " AND gebruikersArchief =" .$archief;
         $this->setQuery($this->getConn()->prepare($query));
 
         $this->getQuery()->execute();
