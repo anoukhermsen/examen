@@ -146,7 +146,7 @@
                     $dateOfBirth = $value['jongereGeboortedatum'];
                     $today = date("Y-m-d");
                     $diff = date_diff(date_create($dateOfBirth), date_create($today));
-                    
+
                     /*
                      * Veranderen van amerikaanse datum naar nederlands
                      * Van 2001-01-02 naar 02-01-2001

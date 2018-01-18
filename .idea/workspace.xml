@@ -87,18 +87,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="overviewYouth.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="overviewYouth.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/youth/overviewYouth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="148" column="20" lean-forward="false" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+            <state relative-caret-position="250">
+              <caret line="147" column="86" lean-forward="true" selection-start-line="145" selection-start-column="20" selection-end-line="147" selection-end-column="86" />
               <folding>
-                <marker date="1516269165087" expanded="true" signature="2556:3856" ph="..." />
-                <marker date="1516269165087" expanded="true" signature="2589:3856" ph="..." />
-                <marker date="1516269165087" expanded="true" signature="4754:6054" ph="..." />
-                <marker date="1516269165087" expanded="true" signature="4787:6054" ph="..." />
-                <marker date="1516269165087" expanded="true" signature="7117:8416" ph="..." />
-                <marker date="1516269165087" expanded="true" signature="7150:8416" ph="..." />
+                <marker date="1516269335034" expanded="true" signature="2556:3856" ph="..." />
+                <marker date="1516269335034" expanded="true" signature="2589:3856" ph="..." />
+                <marker date="1516269335034" expanded="true" signature="4754:6054" ph="..." />
+                <marker date="1516269335034" expanded="true" signature="4787:6054" ph="..." />
+                <marker date="1516269335034" expanded="true" signature="7097:8396" ph="..." />
+                <marker date="1516269335034" expanded="true" signature="7130:8396" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createYouth.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/youth/createYouth.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+              <folding>
+                <marker date="1516270312015" expanded="true" signature="2017:2744" ph="..." />
               </folding>
             </state>
           </provider>
@@ -132,7 +144,6 @@
         <option value="$PROJECT_DIR$/pages/users/deleteUser.php" />
         <option value="$PROJECT_DIR$/pages/users/deleteUser.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/pages/youth/createYouth.php" />
         <option value="$PROJECT_DIR$/pages/youthActiviti/overviewUsers.php" />
         <option value="$PROJECT_DIR$/pages/youthActiviti/archiveYouthActiviti.php" />
         <option value="$PROJECT_DIR$/pages/youthActiviti/createYouthActiviti.php" />
@@ -153,6 +164,8 @@
         <option value="$PROJECT_DIR$/class/Menu.php" />
         <option value="$PROJECT_DIR$/pages/pdfTable.php" />
         <option value="$PROJECT_DIR$/pages/youth/overviewYouth.php" />
+        <option value="$PROJECT_DIR$/class/Age.php" />
+        <option value="$PROJECT_DIR$/pages/youth/createYouth.php" />
       </list>
     </option>
   </component>
@@ -278,12 +291,12 @@
       <workItem from="1516088288426" duration="21344000" />
       <workItem from="1516174550081" duration="9531000" />
       <workItem from="1516187848649" duration="10711000" />
-      <workItem from="1516260788069" duration="6919000" />
+      <workItem from="1516260788069" duration="8064000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58618000" />
+    <option name="totallyTimeSpent" value="59763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -322,18 +335,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/class/Crud.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="n#selectFromTable#0;n#Crud#0;n#!!top" expanded="false" />
-            <element signature="n#insertIntoTable#0;n#Crud#0;n#!!top" expanded="false" />
-            <marker date="1516175968762" expanded="true" signature="4886:4936" ph="DELETE FROM ${$table}... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/youth/overviewYouthInformation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1853">
@@ -362,12 +363,12 @@
         <state relative-caret-position="850">
           <caret line="50" column="38" lean-forward="false" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
           <folding>
-            <marker date="1516269165087" expanded="true" signature="2556:3856" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="2589:3856" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="4754:6054" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="4787:6054" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="7117:8416" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="7150:8416" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="2556:3856" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="2589:3856" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="4754:6054" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="4787:6054" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="7097:8396" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="7130:8396" ph="..." />
           </folding>
         </state>
       </provider>
@@ -536,16 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="35" column="39" lean-forward="false" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/youth/createYouth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="29" />
-          <folding>
-            <marker date="1516198775757" expanded="true" signature="1672:2399" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -778,15 +769,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/youth/overviewYouth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="148" column="20" lean-forward="false" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+        <state relative-caret-position="250">
+          <caret line="147" column="86" lean-forward="true" selection-start-line="145" selection-start-column="20" selection-end-line="147" selection-end-column="86" />
           <folding>
-            <marker date="1516269165087" expanded="true" signature="2556:3856" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="2589:3856" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="4754:6054" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="4787:6054" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="7117:8416" ph="..." />
-            <marker date="1516269165087" expanded="true" signature="7150:8416" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="2556:3856" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="2589:3856" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="4754:6054" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="4787:6054" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="7097:8396" ph="..." />
+            <marker date="1516269335034" expanded="true" signature="7130:8396" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/Age.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/youth/createYouth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="46" column="20" lean-forward="false" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding>
+            <marker date="1516270312015" expanded="true" signature="2017:2744" ph="..." />
           </folding>
         </state>
       </provider>

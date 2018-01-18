@@ -36,10 +36,21 @@ session_start();
         {
             if(!empty($_POST['jongereRoepnaam']) && !empty($_POST['jongereAchternaam']) && !empty($_POST['jongereGeboortedatum']))
             {
+                $date = new DateTime($_POST['jongereGeboortedatum']);
+                $leeftijd = date('Y') - $date->format('Y');
+
+                if ($leeftijd >= 12)
+                {
                     $values = array(htmlspecialchars($_POST['jongereRoepnaam']), htmlspecialchars($_POST['jongereTussenvoegsel']), htmlspecialchars($_POST['jongereAchternaam']), htmlspecialchars($_POST['jongereGeboortedatum']));
                     $query->insertIntoTable($table, $columns, $values);
                     echo 'Het toevoegen is gelukt';
-                    //header("refresh:0.5;url=overviewUsers.php");
+                    header("refresh:0.5;url=overviewYouth.php");
+                }
+
+                if ($leeftijd < 12)
+                {
+                    echo "De jongere moet minimaal 12 jaar oud zijn";
+                }
 
 
             }
