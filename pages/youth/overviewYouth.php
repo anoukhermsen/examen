@@ -51,7 +51,7 @@
                     <th>Roepnaam</th>
                     <th>Tussenvoegsel</th>
                     <th>Achternaam</th>
-                    <th>Geboortedatum</th>
+                    <th>Leeftijd</th>
                     <th>Inschrijfdatum</th>
                     <th>Inschrijven voor een Activiteit</th>
                     <th>Inschrijven voor een Instituut</th>
@@ -71,15 +71,21 @@
                      * Van 2001-01-02 naar 02-01-2001*/
                     $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $value['jongereInschrijfdatum']);
                     $newDateTimeString = $myDateTime->format('d-m-Y H:i:s');
-                    $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
-                    $newDateString = $myDate->format('d-m-Y');
+
+                    /*
+                     * Het omzetten van de datum van geboorte naar de leeftijd zelf
+                     */
+                    $dateOfBirth = $value['jongereGeboortedatum'];
+                    $today = date("Y-m-d");
+                    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+
                     echo " 
                         <tbody>
                             <tr>
                                 <td>" . $value['jongereRoepnaam'] . "</td>
                                 <td>" . $value['jongereTussenvoegsel'] . "</td>
                                 <td>" . $value['jongereAchternaam'] . "</td>
-                                <td>" . $newDateString . "</td>
+                                <td>" . $diff->format('%y') . "</td>
                                 <td>" . $newDateTimeString . "</td>
                                 <td><a href=../youthActiviti/createYouthActiviti.php?id=" . $value['jongereId'] . "><img src='../../img/inschrijven.png'></a></td>
                                 <td><a href=../youthInstitute/createYouthInstitute.php?id=" . $value['jongereId'] . "><img src='../../img/instituut.png'></a></td>
@@ -101,15 +107,21 @@
                      * Van 2001-01-02 naar 02-01-2001*/
                     $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $value['jongereInschrijfdatum']);
                     $newDateTimeString = $myDateTime->format('d-m-Y H:i:s');
-                    $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
-                    $newDateString = $myDate->format('d-m-Y');
+
+                    /*
+                     * Het omzetten van de datum van geboorte naar de leeftijd zelf
+                     */
+                    $dateOfBirth = $value['jongereGeboortedatum'];
+                    $today = date("Y-m-d");
+                    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+
                     echo " 
                         <tbody>
                             <tr>
                                 <td>" . $value['jongereRoepnaam'] . "</td>
                                 <td>" . $value['jongereTussenvoegsel'] . "</td>
                                 <td>" . $value['jongereAchternaam'] . "</td>
-                                <td>" . $newDateString . "</td>
+                                <td>" . $diff->format('%y') . "</td>
                                 <td>" . $newDateTimeString . "</td>
                                 <td><a href=../youthActiviti/createYouthActiviti.php?id=" . $value['jongereId'] . "><img src='../../img/inschrijven.png'></a></td>
                                 <td><a href=../youthInstitute/createYouthInstitute.php?id=" . $value['jongereId'] . "><img src='../../img/instituut.png'></a></td>
@@ -128,19 +140,27 @@
                 echo "Totaal aantal jongeren: ".(new Sql())->teltAantalJongeren($id);
                 foreach ($query->selectFromTable($table, null, $where, $id, null, null, $columnSort, $orderBy) as $value)
                 {
-                    /**Veranderen van amerikaanse datum naar nederlands
-                     * Van 2001-01-02 naar 02-01-2001*/
+                    /*
+                     * Het omzetten van de datum van geboorte naar de leeftijd zelf
+                     */
+                    $dateOfBirth = $value['jongereGeboortedatum'];
+                    $today = date("Y-m-d");
+                    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+                    
+                    /*
+                     * Veranderen van amerikaanse datum naar nederlands
+                     * Van 2001-01-02 naar 02-01-2001
+                     */
                     $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $value['jongereInschrijfdatum']);
                     $newDateTimeString = $myDateTime->format('d-m-Y H:i:s');
-                    $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
-                    $newDateString = $myDate->format('d-m-Y');
+
                     echo " 
                         <tbody>
                             <tr>
                                 <td>" . $value['jongereRoepnaam'] . "</td>
                                 <td>" . $value['jongereTussenvoegsel'] . "</td>
                                 <td>" . $value['jongereAchternaam'] . "</td>
-                                <td>" . $newDateString . "</td>
+                                <td>" . $diff->format('%y'). "</td>
                                 <td>" . $newDateTimeString . "</td>
                                 <td><a href=../youthActiviti/createYouthActiviti.php?id=" . $value['jongereId'] . "><img src='../../img/inschrijven.png'></a></td>
                                 <td><a href=../youthInstitute/createYouthInstitute.php?id=" . $value['jongereId'] . "><img src='../../img/instituut.png'></a></td>
