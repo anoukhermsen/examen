@@ -58,7 +58,7 @@
                     <th>Informatie overzicht</th>
                     <th> </th>
                     <th>Bewerken</th>
-                    <th>Archiveer</th>
+                    <th>Uitschrijven</th>
                 </tr>
             </thead>
 
