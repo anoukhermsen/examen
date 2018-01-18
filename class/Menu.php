@@ -103,7 +103,7 @@ class Menu
                         ?>
                     </ul>
                 </li>
-                <li><a href='../users/updateUser.php' class="right">Gegevens bewerken</a>
+                <li><a href='../users/updateOwnUser.php' class="right">Gegevens bewerken</a>
                 <li><a href='../../logout.php' class="right">Uitloggen</a>
             </ul>
 
