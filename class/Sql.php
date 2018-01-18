@@ -66,7 +66,7 @@ class Sql extends DBConfi
     }
 
     /*
-     *
+     * Deze functie wordt gebruikt voor het ophalen van de functie en te laten tonen in de formulieren die worden gebruikt vandaar dat we FetchAll gebruiken en niet Fetch
      */
     public function selectFromActiviteitFetch()
     {
@@ -78,7 +78,7 @@ class Sql extends DBConfi
     }
 
     /*
-     *
+     * Deze functie wordt gebruikt voor het ophalen van de functie en te laten tonen in de formulieren die worden gebruikt vandaar dat we FetchAll gebruiken en niet Fetch
      */
     public function selectFromInstituutFetch()
     {
@@ -90,7 +90,7 @@ class Sql extends DBConfi
     }
 
     /*
-     *
+     * Deze functie wordt gebruikt om verschillende database tabellen samen te voegen zodat alle informatie van uit alle tabellen kunnen worden gebruikt
      */
     public function joinJongereActiviteit($jongereId)
     {
@@ -102,7 +102,7 @@ class Sql extends DBConfi
     }
 
     /*
-     *
+     * Deze functie wordt gebruikt om verschillende database tabellen samen te voegen zodat alle informatie van uit alle tabellen kunnen worden gebruikt
      */
     public function joinJongereInstituut($jongereId)
     {
@@ -114,7 +114,8 @@ class Sql extends DBConfi
     }
 
     /*
-     *
+     * Deze functie wordt gebruikt om verschillende database tabellen samen te voegen zodat alle informatie van uit alle tabellen kunnen worden gebruikt, ook wordt hier een jaar mee gegeven
+     * waardoor in het pdf de juiste datum word aangetoont
      */
     public function joinJongereInstituutPDF($year)
     {
@@ -128,7 +129,7 @@ class Sql extends DBConfi
     }
 
     /*
-     *
+     * Deze functie wordt gebruikt om verschillende database tabellen samen te voegen zodat alle informatie van uit alle tabellen kunnen worden gebruikt
      */
     public function joinJongereAfspraak($jongereId)
     {
@@ -140,7 +141,7 @@ class Sql extends DBConfi
     }
 
     /*
-     *
+     * In deze functie worden de jaren tot groepen gevormt. Dit is nodig omdat er anders jaren dubbel zouden kunnen worden getoont
      */
     public function checkYearDropdownPDF()
     {
@@ -152,9 +153,8 @@ class Sql extends DBConfi
     }
 
     /*
-     *
+     * In deze functie
      */
-
     public function teltAantalJongeren($jongereId)
     {
         $query = "SELECT COUNT(*) FROM jongere WHERE jongereArchief = ". $jongereId;
@@ -168,7 +168,7 @@ class Sql extends DBConfi
     }
 
     /*
-     *
+     *  Deze functie zogd ervoor dat een grbruiker zich zelf niet kunt verwijderen in de tabel
      */
     public function gebruikersSort($id)
     {

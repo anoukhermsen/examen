@@ -86,7 +86,7 @@ class Menu
                     </ul>
                 </li>
 
-                <li><a>PDF</a>
+                <li><a>Rapporten uitgeschreven jongeren</a>
                     <ul>
                         <?php
                             $sql = new Sql();
