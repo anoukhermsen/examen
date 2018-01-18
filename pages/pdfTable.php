@@ -5,11 +5,14 @@ session_start();
 require('../class/Extends/fpdf.php');
 require('../class/Extends/exfpdf.php');
 require('../class/Extends/easyTable.php');
-include '../class/Crud.php';
+include '../class/Sql.php';
 
 //$pdf = new FPDF();
 $pdf = new exFPDF();
 $pdf->AddPage();
+$sql = new Sql();
+
+
 $pdf->SetFont('Arial','',10);
 
 $table1=new easyTable($pdf, 2);
@@ -23,41 +26,12 @@ $table1->easyCell('Jongeren Kansrijker', 'align:L;');
 $table1->printRow();
 $table1->rowStyle('font-size:12;');
 
-$table = "jongere";
-$where = 'jongereId';
-$columnSort = "jongereId";
-$id = $_SESSION['gebruikersId'];
-$result = new Crud();
-foreach ($result->selectFromTable($table, null, $where, $id, null, null, null, $columnSort) as $value)
-{
-    $naam = $value['jongereRoepnaam'];
-    $tussenvoegsel = $value['jongereTussenvoegsel'];
-    $achternaam = $value['jongereAchternaam'];
-    $myDate = DateTime::createFromFormat('Y-m-d', $value['jongereGeboortedatum']);
-    $newDateString = $myDate->format('d-m-Y');
-    $myDateInschrijf = DateTime::createFromFormat('Y-m-d H:i:s', $value['jongereInschrijfdatum']);
-    $newDateStringInschrijf = $myDateInschrijf->format('d-m-Y H:i:s');
-}
-
-$tables = "activiteit";
-$columnSorts = "activiteitId";
-foreach ($result->selectFromTable($table, null, null, null, null, null, null, $columnSorts) as $value)
-{
-    $factuurnummer = $value['activiteitId'];
-}
-
-
 $table1->rowStyle('font-size:12;');
 $table1->easyCell("M. Norton\n Muziekwijk 22/15 \n3564 ND Almere\n 0352 741 209", 'align:L;');
 $table1->printRow();
 $table1->endTable(5);
-//====================================================================
-
-$products = $value['jongereRoepnaam'];
-
 
 $table=new easyTable($pdf, '{35, 35, 35, 40, 35}','align:L{LLLLL};border:1; border-color:#a1a1a1; ');
-
 $table->rowStyle('align:{LLLLL};valign:M;bgcolor:#000000; font-color:#ffffff; font-family:Arial; font-style:B;');
 $table->easyCell('Jongere roepnaam');
 $table->easyCell('Jongere tussenvoegsel');
@@ -66,19 +40,53 @@ $table->easyCell('Instituut/opleidings naam');
 $table->easyCell('Start datum');
 $table->printRow();
 
+$table->rowStyle('valign:M;border:LR;paddingY:2;');
 for($i=0; $i < 1; $i++)
 {
-    $bgcolor='';
-    if($i%2)
+    $bgcolor = '';
+    if ($i % 2)
     {
-        $bgcolor='bgcolor:#ccf2ff;';
+        $bgcolor = 'bgcolor:#ccf2ff;';
     }
+
     $table->rowStyle('valign:M;border:LR;paddingY:2;' . $bgcolor);
-    $table->easyCell($products[$i]);
-    $table->easyCell(1+$i);
-    $table->easyCell('5 euro');
-    $table->printRow();
+
+
+//====================================================================
+
+    $year = $_GET['id'];
+
+
+    foreach ($sql->joinJongereInstituutPDF($year) as $value)
+    {
+        $yearST = $value['instituutStartdatum'];
+        $myDate = DateTime::createFromFormat('Y-m-d', $value['instituutStartdatum']);
+        $newDateString = $myDate->format('d-m-Y');
+
+        $table->easyCell($value['jongereRoepnaam']);
+        $table->easyCell($value['jongereTussenvoegsel']);
+        $table->easyCell($value['jongereAchternaam']);
+        $table->easyCell($value['instituutNaam']);
+        $table->easyCell($newDateString);
+        $table->printRow();
+    }
+
 }
 
+//
+//for($i=0; $i < 1; $i++)
+//{
+//    $bgcolor='';
+//    if($i%2)
+//    {
+//        $bgcolor='bgcolor:#ccf2ff;';
+//    }
+//    $table->rowStyle('valign:M;border:LR;paddingY:2;' . $bgcolor);
+//    $table->easyCell($naam);
+//    $table->easyCell($tussenvoegsel);
+//    $table->easyCell($achternaam);
+//    $table->printRow();
+//}
+$table->endTable();
 
 $pdf->Output('');

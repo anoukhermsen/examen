@@ -116,6 +116,20 @@ class Sql extends DBConfi
     /*
      *
      */
+    public function joinJongereInstituutPDF($year)
+    {
+        $query = "SELECT * FROM `jongereinstituut` JOIN instituut ON jongereinstituut.instituutId = instituut.instituutId JOIN jongere ON jongereinstituut.jongereId = jongere.jongereId WHERE YEAR(`instituutStartdatum`) =". $year;
+        $this->setQuery($this->getConn()->prepare($query));
+
+        $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
+
+        echo date('Y', strtotime($year));
+    }
+
+    /*
+     *
+     */
     public function joinJongereAfspraak($jongereId)
     {
         $query = "SELECT * FROM `jongereafspraak` JOIN gebruikers ON gebruikers.gebruikersId = jongereafspraak.gebruikersId WHERE jongereId=".$jongereId;
@@ -128,6 +142,19 @@ class Sql extends DBConfi
     /*
      *
      */
+    public function checkYearDropdownPDF()
+    {
+        $query = "SELECT YEAR(`instituutStartdatum`) FROM jongereinstituut GROUP BY YEAR(`instituutStartdatum`)";
+        $this->setQuery($this->getConn()->prepare($query));
+
+        $this->getQuery()->execute();
+        return ($this->getQuery()->fetchAll());
+    }
+
+    /*
+     *
+     */
+
     public function teltAantalJongeren($jongereId)
     {
         $query = "SELECT COUNT(*) FROM jongere WHERE jongereArchief = ". $jongereId;

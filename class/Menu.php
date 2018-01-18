@@ -5,7 +5,7 @@
  * Date: 17-1-2018
  * Time: 12:57
  */
-
+include_once 'Sql.php';
 class Menu
 {
     public function generateMenu()
@@ -83,6 +83,21 @@ class Menu
                     <ul>
                         <li><a href='../youth/createYouth.php'>Toevoegen</a></li>
                         <li><a href='../youth/overviewYouth.php'>Overzicht</a></li>
+                    </ul>
+                </li>
+
+                <li><a>PDF</a>
+                    <ul>
+                        <?php
+                            $sql = new Sql();
+
+                            foreach ($sql->checkYearDropdownPDF() as $value)
+                            {
+                                $teller = 0;
+                                echo "<li><a href='../pdfTable.php?id=".$value[$teller]."'>".$value[$teller]."</a></li>";
+                                $teller++;
+                            }
+                        ?>
                     </ul>
                 </li>
                 <li><a href='../users/updateUser.php' class="right">Gegevens bewerken</a>
