@@ -1,3 +1,8 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
+</head>
+<body>
 <?php
 /**
  * Created by PhpStorm.
@@ -38,23 +43,28 @@
 
     //Het formulier waarbij je de gebruikers kunnen worden toe gevoegd
     echo "<form method='post'>
+
+            Naam instituut:<br>
                     <select name='instituutId'>
                  ";//INSERT INTO jongereinstituut(instituutId, jongereId) VALUES (2, 4)
                     $tables = 'instituut';
+
+
     foreach ($sql->selectFromInstituutFetch() as $value)
     {
 
 
         //De dropdown waarmee je de Categorieën gemakkelijk kunt selecteren
         echo "
-    
+            Naam instituut:<br>
                                 <option value='".$value['instituutId']."'>".$value['instituutNaam']."</option>
                                 
     
-                           <br><br> ";
+                            ";
     }
         echo "
-                            
+</select><br>
+            Startdatum: <br>                
                         <input type='date' name='instituutStartdatum'>
                             <br>
                         <input type='submit' name='submit' value='submit'>

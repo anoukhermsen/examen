@@ -35,7 +35,7 @@
         $values = 1;
         $query->archiveRow($table, $columns, $values, $where, $id);
         echo'de gegevens worden gearchiveerd';
-        header('location: overviewInstitute.php');
+        header('location: overviewArchivedInstitute.php');
     }
 
     if (isset($_POST['Nee']))

@@ -49,7 +49,6 @@ $id = 1;
         <th>Afspraken aanvragen</th>
         <th>Afspraken overzicht</th>
         <th>Terugzetten</th>
-        <th>Verwijderen</th>
         <th>Aantal jongere</th>
     </tr>
     </thead>
@@ -81,7 +80,6 @@ $id = 1;
                                 <td><a href=../appointment/createAppointmentData.php?id=". $value['jongereId'] ."><img src='../../img/inschrijven.png'></a></td>
                                 <td><a href=../appointment/overviewAppointment.php?id=". $value['jongereId'] ."><img src='../../img/info.png'></a></td>
                                 <td><a href=../youth/setbackYouth.php?id=". $value['jongereId'] ."><img src='../../img/back.png'></a></td>
-                                <td><a href=../youth/deleteYouth.php?id=". $value['jongereId'] ."><img src='../../img/delete.png'></a></td>
                                 
                         ";
     }

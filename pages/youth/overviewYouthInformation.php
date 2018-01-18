@@ -32,6 +32,7 @@
 
 
     <body id="top">
+    <a href=../youth/overviewYouth.php>Overzicht jongeren</a>
     <?php
         foreach ($query->selectFromTable($table, null, $where, $id, null, null, $columnSort, $orderBy) as $value)
         {
@@ -119,12 +120,6 @@
 
         </tbody>
     </table>
-    <?php
-    echo"
-        <table>
-        <td><a href=../pdfTable.php?id=".$value['jongereId']."><img src='../../img/pdf.png'></a></td>
-        </table>
-    ";
-    ?>
+
     </body>
 </html>

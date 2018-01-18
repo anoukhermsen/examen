@@ -75,8 +75,8 @@
                     Telefoonnummer instituut:
                     <input type="tel" name="instituutTel" value="<?php echo $value['instituutTel'] ?>">
                     <br>
-                    <input type="submit" name="updaten" value="Updaten" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
-                    <input type="submit" name="annuleren" value="Annuleren" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                    <input type="submit" name="updaten" value="Updaten">
+                    <input type="submit" name="annuleren" value="Annuleren">
             </form>
         <?php
                 }
