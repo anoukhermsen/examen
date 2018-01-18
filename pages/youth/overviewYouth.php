@@ -37,7 +37,7 @@
 
 
     <body id="top">
-    <a href=../youth/overviewArchivedYouth.php>Overzicht gearchiveerde jongere</a>
+    <a href=../youth/overviewArchivedYouth.php>Overzicht uitgeschreven jongeren</a>
 
         <form method="post">
             <input type="submit" name="showAll" value="toon allemaal">
