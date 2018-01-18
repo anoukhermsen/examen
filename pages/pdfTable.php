@@ -17,7 +17,7 @@ $pdf->SetFont('Arial','',10);
 
 $table1=new easyTable($pdf, 2);
 $table1->easyCell('', 'img:../img/klavertjevier.jpg, w40; align:L;');
-$table1->easyCell('Rapportage', 'align:R; font-size:30; font-style:B; font-color:#3CA222;');
+$table1->easyCell('Rapportage uitgeschreven jongeren', 'align:R; font-size:30; font-style:B; font-color:#3CA222;');
 $table1->printRow();
 
 $table1->rowStyle('font-size:15; font-style:B;');

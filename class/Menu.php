@@ -39,6 +39,7 @@ class Menu
                 left:-9999px;
                 top:-9999px;
                 list-style-type:none;
+                z-index: 1;
             }
             .drop_menu li:hover { position:relative; background:#3ca222; }
             .drop_menu li:hover ul {
@@ -46,6 +47,7 @@ class Menu
                 top:49px;
                 background:#3ca222;
                 padding:0px;
+                z-index: 1;
             }
 
             .drop_menu li:hover ul li a {
@@ -54,6 +56,7 @@ class Menu
                 width:168px;
                 text-indent:15px;
                 background-color:#3ca222;
+                z-index: 1;
             }
             .drop_menu li:hover ul li a:hover { background:#005555; }
 
@@ -86,7 +89,7 @@ class Menu
                     </ul>
                 </li>
 
-                <li><a>Rapporten uitgeschreven jongeren</a>
+                <li><a>Rapporten</a>
                     <ul>
                         <?php
                             $sql = new Sql();
