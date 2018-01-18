@@ -1,3 +1,8 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/opmaak.css">
+</head>
+<body>
 <?php
 /**
  * Created by PhpStorm.
@@ -16,7 +21,7 @@ if(isset($_POST['loginButton']))
 
     else
     {
-        echo 'Login';
+        echo 'U heeft uw gebruikersnaam of wachtwoord niet goed ingevuld!';
     }
 }
 ?>
@@ -29,4 +34,5 @@ if(isset($_POST['loginButton']))
                 <input class="btmspace-15" name="gebruikersWachtwoord" type="password" value="" placeholder="Password">
                 <input name="loginButton" type="submit" value="submit">
     </form>
+</body>
 </html>

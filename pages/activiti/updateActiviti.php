@@ -1,3 +1,7 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
+</head>
 <?php
 /**
  * Created by PhpStorm.
@@ -70,8 +74,8 @@
                     Start Datum:
                         <input type='date' name='activiteitStartdatum' value='<?php echo $value['activiteitStartdatum'] ?>'>
                             </br>
-                        <input type="submit" name="aanmaken" value="Updaten" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
-                        <input type="submit" name="annuleren" value="Annuleren" style=" color:#FFFFFF; background-color:#00CCBD; border-color:transparent; padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;">
+                        <input type="submit" name="aanmaken" value="Updaten">
+                        <input type="submit" name="annuleren" value="Annuleren">
             </form>
         <?php
                 }

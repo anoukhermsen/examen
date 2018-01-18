@@ -1,3 +1,7 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
+</head>
 <?php
 /**
  * Created by PhpStorm.
@@ -33,7 +37,7 @@
 
     if (isset($_POST['Nee']))
     {
-        header('location: overviewActiviti.php');
+        header('location: overviewArchivedActiviti.php');
     }
 ?>
 

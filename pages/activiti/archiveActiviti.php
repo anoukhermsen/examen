@@ -1,3 +1,7 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../css/opmaak.css">
+</head>
 <?php
 /**
  * Created by PhpStorm.
@@ -28,7 +32,7 @@
     {
         $values = 1;
         $query->archiveRow($table, $columns, $values, $where, $id);
-        header('location: overviewActiviti.php');
+        header('location: overviewArchivedActiviti.php');
     }
 
     if (isset($_POST['Nee']))
@@ -39,7 +43,7 @@
 
 <html>
     <body>
-        Weet u zeker dat u deze gebruiker wil verwijderen?
+        Weet u zeker dat u deze activiteit wil archiveren?
         <br>
 
             <?php
